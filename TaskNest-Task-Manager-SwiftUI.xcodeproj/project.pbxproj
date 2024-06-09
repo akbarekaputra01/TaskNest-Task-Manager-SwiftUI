@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		653317EE2C15CA3100740298 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653317ED2C15CA3100740298 /* HomeScreen.swift */; };
+		653317F02C15E0E000740298 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653317EF2C15E0E000740298 /* WelcomeScreen.swift */; };
 		657C15332C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C15322C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift */; };
 		657C15352C15816900BA2A09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C15342C15816900BA2A09 /* ContentView.swift */; };
 		657C15372C15816900BA2A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657C15362C15816900BA2A09 /* Assets.xcassets */; };
 		657C153B2C15816900BA2A09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657C153A2C15816900BA2A09 /* Preview Assets.xcassets */; };
+		657C15422C158CC200BA2A09 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C15412C158CC200BA2A09 /* Color+Ext.swift */; };
+		65F1BF942C15FD1700A405EB /* TaskNestTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF932C15FD1700A405EB /* TaskNestTabView.swift */; };
+		65F1BF972C15FE1C00A405EB /* AccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF962C15FE1C00A405EB /* AccountScreen.swift */; };
+		65F1BF9A2C15FFDC00A405EB /* CalendarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF992C15FFDC00A405EB /* CalendarScreen.swift */; };
+		65F1BF9D2C16004C00A405EB /* CreateTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF9C2C16004C00A405EB /* CreateTaskScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		653317ED2C15CA3100740298 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		653317EF2C15E0E000740298 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		657C152F2C15816900BA2A09 /* TaskNest-Task-Manager-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskNest-Task-Manager-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		657C15322C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNest_Task_Manager_SwiftUIApp.swift; sourceTree = "<group>"; };
 		657C15342C15816900BA2A09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		657C15362C15816900BA2A09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		657C15382C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskNest_Task_Manager_SwiftUI.entitlements; sourceTree = "<group>"; };
 		657C153A2C15816900BA2A09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		657C15412C158CC200BA2A09 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		65F1BF932C15FD1700A405EB /* TaskNestTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNestTabView.swift; sourceTree = "<group>"; };
+		65F1BF962C15FE1C00A405EB /* AccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreen.swift; sourceTree = "<group>"; };
+		65F1BF992C15FFDC00A405EB /* CalendarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreen.swift; sourceTree = "<group>"; };
+		65F1BF9C2C16004C00A405EB /* CreateTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +47,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6533FB002C15F99B00F9C829 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				653317EF2C15E0E000740298 /* WelcomeScreen.swift */,
+				65F1BF932C15FD1700A405EB /* TaskNestTabView.swift */,
+				65F1BF912C15FC9600A405EB /* Home */,
+				65F1BF9B2C16001400A405EB /* Create Task */,
+				65F1BF982C15FF4200A405EB /* Calendar */,
+				65F1BF952C15FE0400A405EB /* Account */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		657C15262C15816900BA2A09 = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +79,8 @@
 		657C15312C15816900BA2A09 /* TaskNest-Task-Manager-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				65F1BF902C15FA3700A405EB /* Extensions */,
+				6533FB002C15F99B00F9C829 /* Screens */,
 				657C15322C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift */,
 				657C15342C15816900BA2A09 /* ContentView.swift */,
 				657C15362C15816900BA2A09 /* Assets.xcassets */,
@@ -67,6 +96,46 @@
 				657C153A2C15816900BA2A09 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		65F1BF902C15FA3700A405EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				657C15412C158CC200BA2A09 /* Color+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		65F1BF912C15FC9600A405EB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				653317ED2C15CA3100740298 /* HomeScreen.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		65F1BF952C15FE0400A405EB /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BF962C15FE1C00A405EB /* AccountScreen.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		65F1BF982C15FF4200A405EB /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BF992C15FFDC00A405EB /* CalendarScreen.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		65F1BF9B2C16001400A405EB /* Create Task */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BF9C2C16004C00A405EB /* CreateTaskScreen.swift */,
+			);
+			path = "Create Task";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +208,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653317EE2C15CA3100740298 /* HomeScreen.swift in Sources */,
+				65F1BF9D2C16004C00A405EB /* CreateTaskScreen.swift in Sources */,
+				65F1BF9A2C15FFDC00A405EB /* CalendarScreen.swift in Sources */,
 				657C15352C15816900BA2A09 /* ContentView.swift in Sources */,
+				653317F02C15E0E000740298 /* WelcomeScreen.swift in Sources */,
 				657C15332C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift in Sources */,
+				65F1BF972C15FE1C00A405EB /* AccountScreen.swift in Sources */,
+				657C15422C158CC200BA2A09 /* Color+Ext.swift in Sources */,
+				65F1BF942C15FD1700A405EB /* TaskNestTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+  @State private var isWelcome: Bool = true
+
+  var body: some View {
+    ZStack {
+      if isWelcome {
+        WelcomeScreen(isWelcome: $isWelcome)
+      } else {
+        TaskNestTabView()
+      }
     }
+  }
 }
 
-#Preview {
-    ContentView()
+#Preview{
+  ContentView()
 }
