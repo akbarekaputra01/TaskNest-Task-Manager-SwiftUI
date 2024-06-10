@@ -8,44 +8,43 @@
 import SwiftUI
 
 struct TodaysTasksCardView: View {
-  var taskCategory: String
-  var taskTitle: String
-  var taskDescription: String
-  var taskTime: String
+  var tasks: TaskNest
 
   var body: some View {
     VStack {
       HStack {
         Image(
-          systemName: taskCategory == "work"
+          systemName: tasks.taskCategory == "work"
             ? "handbag.fill"
-            : taskCategory == "home"
+            : tasks.taskCategory == "home"
               ? "house.fill"
-              : taskCategory == "finance"
+              : tasks.taskCategory == "finance"
                 ? "dollarsign"
-                : taskCategory == "education"
+                : tasks.taskCategory == "education"
                   ? "book.fill"
-                  : taskCategory == "health"
+                  : tasks.taskCategory == "health"
                     ? "figure.disc.sports"
                     : "camera.metering.unknown"
         )
         .resizable()
-        .frame(width: 25, height: 25)
+        .frame(width: 20, height: 20)
         .scaledToFit()
         .padding(20)
         .background(.gray.opacity(0.1))
         .cornerRadius(12)
+
         VStack(alignment: .leading, spacing: 3) {
-          Text(taskTitle)
+          Text(tasks.taskName)
             .fontWeight(.bold)
-          Text(taskDescription)
+          Text(tasks.taskDescription)
             .foregroundColor(.isDark.opacity(0.5))
             .font(.system(size: 14))
-          Text(taskTime)
+          Text("\(tasks.taskTimeStart) - \(tasks.taskTimeEnd)")
             .foregroundColor(.accent)
             .fontWeight(.semibold)
             .font(.system(size: 14))
         }
+        .padding(.leading, 5)
       }
       .padding()
     }
@@ -58,8 +57,5 @@ struct TodaysTasksCardView: View {
 
 #Preview{
   TodaysTasksCardView(
-    taskCategory: "work",
-    taskTitle: "Preparations",
-    taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-    taskTime: "7:30 AM - 8:00 AM")
+    tasks: MockData.secondSampleTask)
 }

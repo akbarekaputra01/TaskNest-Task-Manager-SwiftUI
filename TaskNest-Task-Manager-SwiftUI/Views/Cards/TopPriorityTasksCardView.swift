@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct TopPriorityTasksCardView: View {
+  var tasks: TaskNest
+
   // color scheme of device for using second way
   //  @Environment(\.colorScheme) var colorScheme
-
-  var category: String
-  var task: String
-  var time: String
 
   var body: some View {
     ZStack {
@@ -24,15 +22,15 @@ struct TopPriorityTasksCardView: View {
         }) {
           Image(
             systemName:
-              category == "work"
+              tasks.taskCategory == "work"
               ? "handbag.fill"
-              : category == "home"
+              : tasks.taskCategory == "home"
                 ? "house.fill"
-                : category == "finance"
+                : tasks.taskCategory == "finance"
                   ? "dollarsign"
-                  : category == "education"
+                  : tasks.taskCategory == "education"
                     ? "book.fill"
-                    : category == "health"
+                    : tasks.taskCategory == "health"
                       ? "figure.disc.sports"
                       : "camera.metering.unknown"
           )
@@ -63,13 +61,13 @@ struct TopPriorityTasksCardView: View {
           )
         }
 
-        Text(task)
+        Text(tasks.taskName)
           .font(.system(size: 18))
           .fontWeight(.semibold)
           .padding(.vertical, 1)
 
-        Text(time)
-          .font(.system(size: 12))
+        Text("\(tasks.taskDate) at \(tasks.taskTimeStart)")
+          .font(.system(size: 14))
           .foregroundColor(.isDark.opacity(0.5))
 
         Spacer()
@@ -80,7 +78,7 @@ struct TopPriorityTasksCardView: View {
           label: {
             HStack {
               Text("View details")
-                .font(.system(size: 12))
+                .font(.system(size: 14))
                 .fontWeight(.semibold)
               Image(systemName: "arrow.right")
             }
@@ -97,8 +95,6 @@ struct TopPriorityTasksCardView: View {
     .padding(.leading)
   }
 }
-
 #Preview{
-  TopPriorityTasksCardView(
-    category: "work", task: "Meeting with clients", time: "19 Mar, 2024 at 7:30 PM")
+  TopPriorityTasksCardView(tasks: MockData.firstSampleTask)
 }
