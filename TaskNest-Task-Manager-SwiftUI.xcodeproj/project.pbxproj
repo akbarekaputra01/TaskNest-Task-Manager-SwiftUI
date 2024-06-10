@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		653317EE2C15CA3100740298 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653317ED2C15CA3100740298 /* HomeScreen.swift */; };
 		653317F02C15E0E000740298 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653317EF2C15E0E000740298 /* WelcomeScreen.swift */; };
+		6548FE742C16999A009E36E4 /* Image+Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548FE732C16999A009E36E4 /* Image+Modifier.swift */; };
+		6548FE772C169B73009E36E4 /* NotificationBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548FE762C169B73009E36E4 /* NotificationBadgeView.swift */; };
+		6548FE792C169C91009E36E4 /* NotificationBadge+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548FE782C169C91009E36E4 /* NotificationBadge+Ext.swift */; };
 		657C15332C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C15322C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift */; };
 		657C15352C15816900BA2A09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657C15342C15816900BA2A09 /* ContentView.swift */; };
 		657C15372C15816900BA2A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657C15362C15816900BA2A09 /* Assets.xcassets */; };
@@ -23,6 +26,9 @@
 /* Begin PBXFileReference section */
 		653317ED2C15CA3100740298 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		653317EF2C15E0E000740298 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		6548FE732C16999A009E36E4 /* Image+Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Modifier.swift"; sourceTree = "<group>"; };
+		6548FE762C169B73009E36E4 /* NotificationBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBadgeView.swift; sourceTree = "<group>"; };
+		6548FE782C169C91009E36E4 /* NotificationBadge+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationBadge+Ext.swift"; sourceTree = "<group>"; };
 		657C152F2C15816900BA2A09 /* TaskNest-Task-Manager-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskNest-Task-Manager-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		657C15322C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNest_Task_Manager_SwiftUIApp.swift; sourceTree = "<group>"; };
 		657C15342C15816900BA2A09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +66,14 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		6548FE752C169B44009E36E4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6548FE762C169B73009E36E4 /* NotificationBadgeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		657C15262C15816900BA2A09 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				65F1BF902C15FA3700A405EB /* Extensions */,
+				6548FE752C169B44009E36E4 /* Views */,
 				6533FB002C15F99B00F9C829 /* Screens */,
 				657C15322C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift */,
 				657C15342C15816900BA2A09 /* ContentView.swift */,
@@ -102,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				657C15412C158CC200BA2A09 /* Color+Ext.swift */,
+				6548FE732C16999A009E36E4 /* Image+Modifier.swift */,
+				6548FE782C169C91009E36E4 /* NotificationBadge+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,7 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6548FE792C169C91009E36E4 /* NotificationBadge+Ext.swift in Sources */,
+				6548FE742C16999A009E36E4 /* Image+Modifier.swift in Sources */,
 				653317EE2C15CA3100740298 /* HomeScreen.swift in Sources */,
+				6548FE772C169B73009E36E4 /* NotificationBadgeView.swift in Sources */,
 				65F1BF9D2C16004C00A405EB /* CreateTaskScreen.swift in Sources */,
 				65F1BF9A2C15FFDC00A405EB /* CalendarScreen.swift in Sources */,
 				657C15352C15816900BA2A09 /* ContentView.swift in Sources */,

@@ -9,7 +9,22 @@ import SwiftUI
 
 struct HomeScreen: View {
   var body: some View {
-    Text("Home Screen")
+    NavigationView {
+      VStack {
+        Text("Your Content Here")
+      }
+      .navigationBarTitle("Home", displayMode: .inline)
+      .navigationBarItems(
+        trailing:
+          Button(action: {
+            print("notif button clicked")
+          }) {
+            Image(systemName: "bell")
+              .notificationButtonStyle()
+              .notifBadgeExt(count: 9)
+          }
+      )
+    }
   }
 }
 
