@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TopPriorityTasksCardView: View {
+  // color scheme of device for using second way
+  //  @Environment(\.colorScheme) var colorScheme
+
   var category: String
   var task: String
   var time: String
@@ -35,10 +38,24 @@ struct TopPriorityTasksCardView: View {
           )
           .resizable()
           .scaledToFit()
-          .frame(width: 35, height: 35)
+          .frame(width: 40, height: 40)
           .padding(8)
           .background(Color.clear)
-          .foregroundColor(.black)
+
+          // first way
+          //          .foregroundColor(
+          //            Color(
+          //              UIColor { traitCollection in
+          //                return traitCollection.userInterfaceStyle == .dark ? .white : .black
+          //              })
+          //          )
+
+          // sec way
+          //          .foregroundColor(colorScheme == .dark ? .white : .black)
+
+          // third way
+          .foregroundColor(.isDark)
+
           .clipShape(Circle())
           .overlay(
             RoundedRectangle(cornerRadius: 5)
@@ -47,13 +64,13 @@ struct TopPriorityTasksCardView: View {
         }
 
         Text(task)
-          .font(.system(size: 16))
+          .font(.system(size: 18))
           .fontWeight(.semibold)
           .padding(.vertical, 1)
 
         Text(time)
-          .font(.system(size: 10))
-          .foregroundColor(.black.opacity(0.5))
+          .font(.system(size: 12))
+          .foregroundColor(.isDark.opacity(0.5))
 
         Spacer()
         Button(
@@ -63,7 +80,7 @@ struct TopPriorityTasksCardView: View {
           label: {
             HStack {
               Text("View details")
-                .font(.system(size: 10))
+                .font(.system(size: 12))
                 .fontWeight(.semibold)
               Image(systemName: "arrow.right")
             }
@@ -71,12 +88,13 @@ struct TopPriorityTasksCardView: View {
         Spacer()
       }
       .frame(maxWidth: .infinity, alignment: .leading)
-      .padding()
     }
-    .frame(width: 250, height: 150)
+    .padding()
+    .frame(width: 240, height: 160)
     .background(Color(.systemBackground))
     .cornerRadius(12)
     .shadow(color: Color.gray.opacity(0.5), radius: 4, x: 3, y: 3)
+    .padding(.leading)
   }
 }
 
