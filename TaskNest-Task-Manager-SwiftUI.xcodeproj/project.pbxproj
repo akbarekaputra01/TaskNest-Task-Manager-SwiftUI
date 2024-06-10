@@ -117,8 +117,8 @@
 		657C15312C15816900BA2A09 /* TaskNest-Task-Manager-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				65F9841B2C174C8A0008524A /* Utilities */,
 				65F984182C173B090008524A /* Models */,
-				65F1BF902C15FA3700A405EB /* Extensions */,
 				6548FE752C169B44009E36E4 /* Views */,
 				6533FB002C15F99B00F9C829 /* Screens */,
 				657C15322C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift */,
@@ -186,6 +186,14 @@
 				65F984192C173B200008524A /* TaskNest.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		65F9841B2C174C8A0008524A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				65F1BF902C15FA3700A405EB /* Extensions */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
