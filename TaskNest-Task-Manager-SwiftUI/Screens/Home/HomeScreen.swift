@@ -50,7 +50,7 @@ struct HomeScreen: View {
               }
               .padding(.top, 10)
 
-              ForEach(MockData.tasks, id: \.id) { task in
+              ForEach(MockData.tasks.prefix(5), id: \.id) { task in
                 TodaysTasksCardView(tasks: task)
               }
             }
