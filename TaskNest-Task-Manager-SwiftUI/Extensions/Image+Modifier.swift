@@ -12,11 +12,11 @@ extension Image {
     self
       .padding(8)
       .background(Color.clear)
-      .foregroundColor(.black)
+      .foregroundColor(.isDark)
       .clipShape(Circle())
       .overlay(
         RoundedRectangle(cornerRadius: 10)
-          .stroke(Color.black.opacity(0.5), lineWidth: 0.5)
+          .stroke(.isDark.opacity(0.5), lineWidth: 0.5)
       )
   }
 }

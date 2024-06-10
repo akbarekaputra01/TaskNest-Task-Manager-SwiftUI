@@ -15,10 +15,11 @@ struct NotifBadgeModifier: ViewModifier {
       content
       if count > 0 {
         Text("\(count)")
+          .foregroundColor(.isDark)
           .font(.caption)
-          .foregroundColor(.white)
+          .fontWeight(.bold)
           .padding(4)
-          .background(Color.red)
+          .background(.accent)
           .clipShape(Circle())
           .offset(x: 6, y: -6)
       }
