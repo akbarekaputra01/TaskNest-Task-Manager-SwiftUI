@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Image {
-  func notificationButtonStyle() -> some View {
+  func outlineButtonStyle() -> some View {
     self
       .padding(8)
       .background(Color.clear)
@@ -20,4 +20,3 @@ extension Image {
       )
   }
 }
-
