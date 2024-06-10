@@ -14,8 +14,8 @@ struct TaskNestTabView: View {
     TabView {
       HomeScreen()
         .tabItem { Label("Home", systemImage: "house") }
-      CreateTaskScreen()
-        .tabItem { Label("Create Task", systemImage: "plus") }
+      TasksScreen()
+        .tabItem { Label("Tasks", systemImage: "list.clipboard") }
       CalendarScreen()
         .tabItem { Label("Calendar", systemImage: "calendar") }
       AccountScreen()
