@@ -21,16 +21,11 @@ struct HomeScreen: View {
               .fontWeight(.semibold)
             ScrollView(.horizontal, showsIndicators: false) {
               HStack {
-                TopPriorityTasksCardView(
-                  category: "work", task: "Meeting with clients", time: "19 Mar, 2024 at 7:30 PM")
-                TopPriorityTasksCardView(
-                  category: "education", task: "Meeting with clients",
-                  time: "19 Mar, 2024 at 7:30 PM"
-                )
-                TopPriorityTasksCardView(
-                  category: "health", task: "Meeting with clients", time: "19 Mar, 2024 at 7:30 PM")
-                TopPriorityTasksCardView(
-                  category: "home", task: "Meeting with clients", time: "19 Mar, 2024 at 7:30 PM")
+                ForEach(MockData.tasks, id: \.id) { task in
+                  if task.priorityLevel == "high" {
+                    TopPriorityTasksCardView(tasks: task)
+                  }
+                }
               }
               .frame(height: 170)
               .padding(.leading, 3)
@@ -45,35 +40,19 @@ struct HomeScreen: View {
 
                 Spacer()
 
-                Text("See all")
-                  .font(.system(size: 16))
-                  .foregroundColor(.black.opacity(0.5))
+                Button(
+                  action: { print("cliked") },
+                  label: {
+                    Text("See all")
+                      .font(.system(size: 16))
+                      .foregroundColor(.black.opacity(0.5))
+                  })
               }
               .padding(.top, 10)
-              TodaysTasksCardView(
-                taskCategory: "work",
-                taskTitle: "Preparations",
-                taskDescription:
-                  "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-                taskTime: "7:30 AM - 8:00 AM")
-              TodaysTasksCardView(
-                taskCategory: "education",
-                taskTitle: "Preparations",
-                taskDescription:
-                  "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-                taskTime: "7:30 AM - 8:00 AM")
-              TodaysTasksCardView(
-                taskCategory: "home",
-                taskTitle: "Preparations",
-                taskDescription:
-                  "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-                taskTime: "7:30 AM - 8:00 AM")
-              TodaysTasksCardView(
-                taskCategory: "work",
-                taskTitle: "Preparations",
-                taskDescription:
-                  "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-                taskTime: "7:30 AM - 8:00 AM")
+
+              ForEach(MockData.tasks, id: \.id) { task in
+                TodaysTasksCardView(tasks: task)
+              }
             }
             .padding(.horizontal)
           }
