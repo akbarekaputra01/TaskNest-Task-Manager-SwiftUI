@@ -8,21 +8,43 @@
 import SwiftUI
 
 struct TasksScreen: View {
+  @State var isShowingCreateTaskScreen: Bool = false
+
   var body: some View {
     NavigationView {
-      ZStack {
-        ScrollView(.vertical, showsIndicators: false) {
-          VStack(alignment: .leading, spacing: 20) {
-            ForEach(MockData.tasks.prefix(5), id: \.id) { task in
-              TodaysTasksCardView(tasks: task)
-            }
+      ScrollView(.vertical, showsIndicators: false) {
+        VStack(alignment: .leading, spacing: 22) {
+          ForEach(MockData.tasks, id: \.id) { task in
+            TodaysTasksCardView(tasks: task)
           }
-          .padding(.horizontal)
         }
-
-        .navigationBarTitle("Tasks", displayMode: .inline)
+        .padding(.horizontal)
+        .padding(.top)
       }
+
+      .navigationBarTitle("Tasks", displayMode: .inline)
+      .navigationBarTitle("Home", displayMode: .inline)
+      .navigationBarItems(
+        trailing:
+          Button(
+            action: {
+              isShowingCreateTaskScreen.toggle()
+            },
+            label: {
+              Image(systemName: "plus.app")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 25)
+                .foregroundColor(.isDark)
+            })
+      )
     }
+    .fullScreenCover(
+      isPresented: $isShowingCreateTaskScreen,
+      content: {
+        CreateTaskScreen()
+      }
+    )
   }
 }
 
