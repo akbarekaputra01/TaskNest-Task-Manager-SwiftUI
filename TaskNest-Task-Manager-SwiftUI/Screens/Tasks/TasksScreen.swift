@@ -9,7 +9,20 @@ import SwiftUI
 
 struct TasksScreen: View {
   var body: some View {
-    Text("Tasks Screen")
+    NavigationView {
+      ZStack {
+        ScrollView(.vertical, showsIndicators: false) {
+          VStack(alignment: .leading, spacing: 20) {
+            ForEach(MockData.tasks.prefix(5), id: \.id) { task in
+              TodaysTasksCardView(tasks: task)
+            }
+          }
+          .padding(.horizontal)
+        }
+
+        .navigationBarTitle("Tasks", displayMode: .inline)
+      }
+    }
   }
 }
 
