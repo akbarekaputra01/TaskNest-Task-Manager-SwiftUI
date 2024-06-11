@@ -8,56 +8,61 @@
 import SwiftUI
 
 struct HomeScreen: View {
+  let dateNow = DateUtils.formattedDDMMYYYY(selectedDate: Date())
+  @State var isShowingTodaysTasksScreen: Bool = false
+
   var body: some View {
     NavigationView {
-      ZStack {
-        ScrollView(.vertical, showsIndicators: false) {
-          VStack(alignment: .leading) {
+      VStack(alignment: .leading) {
+        Text("Top Priority Tasks")
+          .padding(.leading)
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .font(.title3)
+          .fontWeight(.semibold)
 
-            Text("Top Priority Tasks")
-              .padding(.leading)
-              .frame(maxWidth: .infinity, alignment: .leading)
-              .font(.title3)
-              .fontWeight(.semibold)
-            ScrollView(.horizontal, showsIndicators: false) {
-              HStack {
-                ForEach(MockData.tasks, id: \.id) { task in
-                  if task.priorityLevel == "high" {
-                    TopPriorityTasksCardView(tasks: task)
-                  }
-                }
-              }
-              .frame(height: 170)
-              .padding(.leading, 3)
-              .padding(.trailing, 10)
-            }
-
-            VStack(spacing: 20) {
-              HStack {
-                Text("Today's Tasks")
-                  .font(.title3)
-                  .fontWeight(.semibold)
-
-                Spacer()
-
-                Button(
-                  action: { print("cliked") },
-                  label: {
-                    Text("See all")
-                      .font(.system(size: 16))
-                      .foregroundColor(.black.opacity(0.5))
-                  })
-              }
-              .padding(.top, 10)
-
-              ForEach(MockData.tasks.prefix(5), id: \.id) { task in
-                TodaysTasksCardView(tasks: task)
+        ScrollView(.horizontal, showsIndicators: false) {
+          HStack {
+            ForEach(MockData.tasks, id: \.id) { task in
+              if task.priorityLevel == "High" {
+                TopPriorityTasksCardView(tasks: task)
               }
             }
-            .padding(.horizontal)
+          }
+          .frame(height: 170)
+          .padding(.leading, 3)
+          .padding(.trailing, 10)
+        }
+
+        HStack {
+          Text("Today's Tasks")
+            .font(.title3)
+            .fontWeight(.semibold)
+          Spacer()
+          Button(
+            action: {
+              isShowingTodaysTasksScreen.toggle()
+            },
+            label: {
+              Text("See all")
+                .foregroundColor(.gray)
+            })
+        }
+        .padding(.horizontal)
+        .padding(.top)
+
+        VStack(spacing: 22) {
+          // filtering and limiting data
+          ForEach(MockData.tasks.filter { $0.taskDate == dateNow }.prefix(3), id: \.id) {
+            task in
+            TodaysTasksCardView(tasks: task)
           }
         }
+        .padding(.horizontal)
+        .padding(.top, 5)
+
+        Spacer()
       }
+
       .navigationBarTitle("Home", displayMode: .inline)
       .navigationBarItems(
         trailing:
@@ -65,10 +70,16 @@ struct HomeScreen: View {
             print("notif button clicked")
           }) {
             Image(systemName: "bell")
-              .outlineButtonStyle()
-              .notifBadgeExt(count: 90)
+              .outlineButtonExt()
+              .notifBadgeExt(count: 94)
               .padding(.bottom, 10)
           }
+      )
+      .fullScreenCover(
+        isPresented: $isShowingTodaysTasksScreen,
+        content: {
+          TodaysTasksScreen()
+        }
       )
     }
   }

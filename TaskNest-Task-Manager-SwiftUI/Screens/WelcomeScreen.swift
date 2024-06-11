@@ -13,10 +13,13 @@ struct WelcomeScreen: View {
   var body: some View {
     VStack {
       Spacer()
-      Image("Unknown")
+
+      Image("PeopleWriting")
         .resizable()
         .scaledToFit()
         .frame(width: 200)
+
+      Spacer()
 
       VStack {
         Text("Effortlessly Organise Your Day")
@@ -24,10 +27,11 @@ struct WelcomeScreen: View {
           .font(.system(size: 32))
           .multilineTextAlignment(.center)
           .padding(.bottom)
+
         Text("Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.")
           .font(.system(size: 16))
           .multilineTextAlignment(.center)
-          .foregroundColor(Color.black.opacity(0.5))
+          .foregroundColor(Color.isDark.opacity(0.5))
       }
       .padding(.horizontal, 28)
 

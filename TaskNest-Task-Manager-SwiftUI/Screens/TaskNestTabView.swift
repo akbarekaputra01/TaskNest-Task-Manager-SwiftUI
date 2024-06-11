@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct TaskNestTabView: View {
-  @State private var isWelcome: Bool = true
-
   var body: some View {
     TabView {
       HomeScreen()
@@ -20,7 +18,6 @@ struct TaskNestTabView: View {
         .tabItem { Label("Calendar", systemImage: "calendar") }
       AccountScreen()
         .tabItem { Label("Account", systemImage: "person") }
-
     }
   }
 }
