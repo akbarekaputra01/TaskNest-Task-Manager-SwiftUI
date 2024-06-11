@@ -69,9 +69,7 @@ struct HomeScreen: View {
                 .notifBadgeExt(count: 90)
                 .padding(.bottom, 10)
             }
-
         )
-
       }
     }
   }
