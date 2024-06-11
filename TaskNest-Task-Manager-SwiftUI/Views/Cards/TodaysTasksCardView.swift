@@ -11,44 +11,41 @@ struct TodaysTasksCardView: View {
   var tasks: TaskNest
 
   var body: some View {
-    VStack {
-      HStack {
-        Image(
-          systemName: tasks.taskCategory == "work"
-            ? "handbag.fill"
-            : tasks.taskCategory == "home"
-              ? "house.fill"
-              : tasks.taskCategory == "finance"
-                ? "dollarsign"
-                : tasks.taskCategory == "education"
-                  ? "book.fill"
-                  : tasks.taskCategory == "health"
-                    ? "figure.disc.sports"
-                    : "camera.metering.unknown"
-        )
-        .resizable()
-        .frame(width: 20, height: 20)
-        .scaledToFit()
-        .padding(20)
-        .background(.gray.opacity(0.1))
-        .cornerRadius(12)
+    HStack {
+      Image(
+        systemName: tasks.taskCategory == "Work"
+          ? "handbag.fill"
+          : tasks.taskCategory == "Home"
+            ? "house.fill"
+            : tasks.taskCategory == "Finance"
+              ? "dollarsign"
+              : tasks.taskCategory == "Education"
+                ? "book.fill"
+                : tasks.taskCategory == "Health"
+                  ? "figure.disc.sports"
+                  : "camera.metering.unknown"
+      )
+      .resizable()
+      .frame(width: 20, height: 20)
+      .padding(20)
+      .background(.gray.opacity(0.1))
+      .cornerRadius(12)
 
-        VStack(alignment: .leading, spacing: 3) {
-          Text(tasks.taskName)
-            .fontWeight(.bold)
-          Text(tasks.taskDescription)
-            .foregroundColor(.isDark.opacity(0.5))
-            .font(.system(size: 14))
-          Text("\(tasks.taskTimeStart) - \(tasks.taskTimeEnd)")
-            .foregroundColor(.accent)
-            .fontWeight(.semibold)
-            .font(.system(size: 14))
-        }
-        .padding(.leading, 5)
+      VStack(alignment: .leading, spacing: 3) {
+        Text(tasks.taskTitle)
+          .fontWeight(.bold)
+        Text(tasks.taskDescription)
+          .foregroundColor(.isDark.opacity(0.5))
+          .font(.system(size: 14))
+        Text("\(tasks.taskTimeStart) - \(tasks.taskTimeEnd)")
+          .foregroundColor(.accent)
+          .fontWeight(.semibold)
+          .font(.system(size: 14))
       }
-      .padding()
+      .padding(.leading, 5)
     }
-    .frame(maxWidth: .infinity, maxHeight: 103)
+    .padding()
+    .frame(maxWidth: .infinity, maxHeight: 105)
     .background(Color(.systemBackground))
     .cornerRadius(12)
     .shadow(color: Color.gray.opacity(0.5), radius: 5)
@@ -57,5 +54,5 @@ struct TodaysTasksCardView: View {
 
 #Preview{
   TodaysTasksCardView(
-    tasks: MockData.secondSampleTask)
+    tasks: MockData.sampleTaskTwo)
 }
