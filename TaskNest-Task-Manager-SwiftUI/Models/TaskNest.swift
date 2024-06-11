@@ -9,7 +9,7 @@ import Foundation
 
 struct TaskNest: Decodable, Identifiable {
   let id: Int
-  let taskName: String
+  let taskTitle: String
   let taskDescription: String
   let taskTimeStart: String
   let taskTimeEnd: String
@@ -19,36 +19,70 @@ struct TaskNest: Decodable, Identifiable {
 }
 
 struct MockData {
-  static let firstSampleTask = TaskNest(
+  static let sampleTaskOne = TaskNest(
     id: 001,
-    taskName: "Meeting with clients 1",
+    taskTitle: "Meeting with clients 1",
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
     taskTimeStart: "6:00 PM",
     taskTimeEnd: "8:00 PM",
-    taskDate: "19 Mar, 2024",
-    taskCategory: "work",
-    priorityLevel: "high")
-  static let secondSampleTask = TaskNest(
+    taskDate: "12 Mar, 2024",
+    taskCategory: "Work",
+    priorityLevel: "High")
+
+  static let sampleTaskTwo = TaskNest(
     id: 002,
-    taskName: "Meeting with clients 2",
+    taskTitle: "Meeting with clients 2",
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
     taskTimeStart: "6:00 PM",
     taskTimeEnd: "8:00 PM",
-    taskDate: "20 Mar, 2024",
-    taskCategory: "home",
-    priorityLevel: "low")
-  static let thirdSampleTask = TaskNest(
+    taskDate: "12 Jun, 2024",
+    taskCategory: "Home",
+    priorityLevel: "Low")
+
+  static let sampleTaskThree = TaskNest(
     id: 003,
-    taskName: "Meeting with clients 3",
+    taskTitle: "Meeting with clients 3",
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
     taskTimeStart: "6:00 PM",
     taskTimeEnd: "8:00 PM",
-    taskDate: "21 Mar, 2024",
-    taskCategory: "education",
-    priorityLevel: "high")
+    taskDate: "12 Jun, 2024",
+    taskCategory: "Health",
+    priorityLevel: "High")
+
+  static let sampleTaskFour = TaskNest(
+    id: 004,
+    taskTitle: "Meeting with clients 4",
+    taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
+    taskTimeStart: "6:00 PM",
+    taskTimeEnd: "8:00 PM",
+    taskDate: "12 Jun, 2024",
+    taskCategory: "Finance",
+    priorityLevel: "Low")
+
+  static let sampleTaskFive = TaskNest(
+    id: 005,
+    taskTitle: "Meeting with clients 5",
+    taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
+    taskTimeStart: "6:00 PM",
+    taskTimeEnd: "8:00 PM",
+    taskDate: "11 Jun, 2024",
+    taskCategory: "Work",
+    priorityLevel: "High")
+
+  static let sampleTaskSix = TaskNest(
+    id: 006,
+    taskTitle: "Meeting with clients 6",
+    taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
+    taskTimeStart: "6:00 PM",
+    taskTimeEnd: "8:00 PM",
+    taskDate: "12 Jun, 2024",
+    taskCategory: "Education",
+    priorityLevel: "Low")
 
   static let tasks = [
-    firstSampleTask, secondSampleTask, thirdSampleTask,
-    firstSampleTask, secondSampleTask, thirdSampleTask,
+    sampleTaskOne, sampleTaskTwo, sampleTaskThree,
+    sampleTaskFour, sampleTaskFive, sampleTaskSix,
+    sampleTaskOne, sampleTaskTwo, sampleTaskThree,
+    sampleTaskFour, sampleTaskFive, sampleTaskSix,
   ]
 }
