@@ -57,20 +57,19 @@ struct HomeScreen: View {
             .padding(.horizontal)
           }
         }
-
-        .navigationBarTitle("Home", displayMode: .inline)
-        .navigationBarItems(
-          trailing:
-            Button(action: {
-              print("notif button clicked")
-            }) {
-              Image(systemName: "bell")
-                .outlineButtonStyle()
-                .notifBadgeExt(count: 90)
-                .padding(.bottom, 10)
-            }
-        )
       }
+      .navigationBarTitle("Home", displayMode: .inline)
+      .navigationBarItems(
+        trailing:
+          Button(action: {
+            print("notif button clicked")
+          }) {
+            Image(systemName: "bell")
+              .outlineButtonStyle()
+              .notifBadgeExt(count: 90)
+              .padding(.bottom, 10)
+          }
+      )
     }
   }
 }
