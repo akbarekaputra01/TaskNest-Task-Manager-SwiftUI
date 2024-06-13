@@ -89,7 +89,7 @@ struct SetTime: View {
             Spacer()
             Text(
               "\(DateUtils.formattedHour(selectedDate: fromSelectedDate)):\(DateUtils.formattedMinute(selectedDate: fromSelectedDate))"
-            )
+            ).fontWeight(.bold)
             Spacer()
             Image(systemName: "chevron.down")
           }
@@ -130,7 +130,7 @@ struct SetTime: View {
             Spacer()
             Text(
               "\(DateUtils.formattedHour(selectedDate: toSelectedDate)):\(DateUtils.formattedMinute(selectedDate: toSelectedDate))"
-            )
+            ).fontWeight(.bold)
             Spacer()
             Image(systemName: "chevron.down")
           }
