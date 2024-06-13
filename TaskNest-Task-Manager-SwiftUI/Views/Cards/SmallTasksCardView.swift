@@ -1,5 +1,5 @@
 //
-//  TopPriorityTasksCardView.swift
+//  SmallTasksCardView.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 10/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopPriorityTasksCardView: View {
+struct SmallTasksCardView: View {
   var tasks: TaskNest
 
   // color scheme of device for using second way
@@ -92,5 +92,5 @@ struct TopPriorityTasksCardView: View {
   }
 }
 #Preview{
-  TopPriorityTasksCardView(tasks: MockData.sampleTaskOne)
+  SmallTasksCardView(tasks: MockData.sampleTaskOne)
 }
