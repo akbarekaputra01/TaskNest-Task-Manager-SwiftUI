@@ -8,7 +8,14 @@
 import SwiftUI
 
 final class CalendarViewModel: ObservableObject {
-  @Published var selectedDate: Date
+  @Published var selectedDate: Date {
+    didSet {
+      self.formattedSelectedDate = DateUtils.formattedDDMMYYYY(selectedDate: self.selectedDate)
+      self.tasksOnSelectedDate = MockData.tasks.filter {
+        $0.taskDate == self.formattedSelectedDate
+      }
+    }
+  }
   @Published var formattedSelectedDate: String
   @Published var tasksOnSelectedDate: [TaskNest]
 
