@@ -8,13 +8,12 @@
 import SwiftUI
 
 struct TasksView: View {
-  @State var isShowingCreateTaskScreen: Bool = false
+  @StateObject var viewModel = TasksViewModel()
 
   var body: some View {
     NavigationView {
       VStack {
-        let allTasks = MockData.tasks
-        if allTasks.isEmpty {
+        if viewModel.allTasks.isEmpty {
           Spacer()
           Text("No tasks found")
             .foregroundColor(.gray)
@@ -22,9 +21,8 @@ struct TasksView: View {
         } else {
           ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 22) {
-
-              ForEach(allTasks, id: \.id) { task in
-                LargeTaskCard(tasks: task)
+              ForEach(viewModel.allTasks, id: \.id) { task in
+                LargeTaskCard(viewModel: LargeTaskCardViewModel(task: task))
               }
             }
             .padding()
@@ -38,7 +36,7 @@ struct TasksView: View {
         trailing:
           Button(
             action: {
-              isShowingCreateTaskScreen.toggle()
+              viewModel.isShowingCreateTaskScreen.toggle()
             },
             label: {
               Image(systemName: "plus.app")
@@ -49,7 +47,7 @@ struct TasksView: View {
             }))
     }
     .fullScreenCover(
-      isPresented: $isShowingCreateTaskScreen,
+      isPresented: $viewModel.isShowingCreateTaskScreen,
       content: {
         CreateTaskView()
       }

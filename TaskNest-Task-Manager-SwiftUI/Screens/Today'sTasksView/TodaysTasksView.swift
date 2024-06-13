@@ -11,13 +11,12 @@ struct TodaysTasksView: View {
   // to close this screen
   @Environment(\.presentationMode) var presentationMode
 
-  let dateNow = DateUtils.formattedDDMMYYYY(selectedDate: Date())
+  @StateObject var viewModel = TodaysTasksViewModel()
 
   var body: some View {
     NavigationView {
       VStack {
-        let todayTasks = MockData.tasks.filter { $0.taskDate == dateNow }
-        if todayTasks.isEmpty {
+        if viewModel.todayTasks.isEmpty {
           Spacer()
           Text("No tasks found for today")
             .foregroundColor(.gray)
@@ -25,15 +24,14 @@ struct TodaysTasksView: View {
         } else {
           ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 22) {
-              ForEach(todayTasks, id: \.id) { task in
-                LargeTaskCard(tasks: task)
+              ForEach(viewModel.todayTasks, id: \.id) { task in
+                LargeTaskCard(viewModel: LargeTaskCardViewModel(task: task))
               }
             }
             .padding(.horizontal)
             .padding(.top)
           }
         }
-
       }
 
       .navigationBarTitle("Today's Tasks", displayMode: .inline)
@@ -50,6 +48,9 @@ struct TodaysTasksView: View {
               .foregroundColor(Color.primary)
               .padding(.vertical)
           })
+    }
+    .onAppear {
+      _ = viewModel.dateNow
     }
   }
 }

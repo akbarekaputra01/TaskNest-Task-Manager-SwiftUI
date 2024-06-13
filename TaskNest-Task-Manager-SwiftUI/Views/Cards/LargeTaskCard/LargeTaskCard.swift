@@ -8,22 +8,12 @@
 import SwiftUI
 
 struct LargeTaskCard: View {
-  var tasks: TaskNest
+  @ObservedObject var viewModel: LargeTaskCardViewModel
 
   var body: some View {
     HStack {
       Image(
-        systemName: tasks.taskCategory == "Work"
-          ? "handbag.fill"
-          : tasks.taskCategory == "Home"
-            ? "house.fill"
-            : tasks.taskCategory == "Finance"
-              ? "dollarsign"
-              : tasks.taskCategory == "Education"
-                ? "book.fill"
-                : tasks.taskCategory == "Health"
-                  ? "figure.disc.sports"
-                  : "camera.metering.unknown"
+        systemName: viewModel.categoryImageSystemName
       )
       .resizable()
       .frame(width: 20, height: 20)
@@ -32,12 +22,12 @@ struct LargeTaskCard: View {
       .cornerRadius(12)
 
       VStack(alignment: .leading, spacing: 3) {
-        Text(tasks.taskTitle)
+        Text(viewModel.taskTitle)
           .fontWeight(.bold)
-        Text(tasks.taskDescription)
+        Text(viewModel.taskDescription)
           .foregroundColor(.isDark.opacity(0.5))
           .font(.system(size: 14))
-        Text("\(tasks.taskTimeStart) - \(tasks.taskTimeEnd)")
+        Text(viewModel.formattedTaskTime)
           .foregroundColor(.accent)
           .fontWeight(.semibold)
           .font(.system(size: 14))
@@ -54,5 +44,5 @@ struct LargeTaskCard: View {
 
 #Preview{
   LargeTaskCard(
-    tasks: MockData.sampleTaskTwo)
+    viewModel: LargeTaskCardViewModel(task: MockData.sampleTaskTwo))
 }

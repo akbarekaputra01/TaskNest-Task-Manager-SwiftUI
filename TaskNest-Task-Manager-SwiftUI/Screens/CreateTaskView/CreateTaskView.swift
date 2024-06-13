@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct CreateTaskView: View {
+  @StateObject var viewModel = CreateTasksViewModel()
+
   // to close this screen
   @Environment(\.presentationMode) var presentationMode
-
-  @State private var taskTitle: String = ""
-  @State private var taskDescription: String = ""
-  @State private var selectedPriority: String?
 
   @FocusState private var focusedTextField: FormTextField?
   enum FormTextField {
@@ -28,7 +26,7 @@ struct CreateTaskView: View {
           .font(.title3)
           .fontWeight(.semibold)
 
-        TextField("Task Title", text: $taskTitle)
+        TextField("Task Title", text: $viewModel.taskTitle)
           .padding()
           .background(Color.gray.opacity(0.05))
           .overlay(
@@ -41,7 +39,7 @@ struct CreateTaskView: View {
           .padding(.bottom, 8)
 
         ZStack(alignment: .leading) {
-          if taskDescription.isEmpty {
+          if viewModel.taskDescription.isEmpty {
             VStack {
               Text("Task Description")
                 .foregroundColor(.gray.opacity(0.75))
@@ -50,8 +48,8 @@ struct CreateTaskView: View {
             .padding()
           }
           VStack {
-            TextEditor(text: $taskDescription)
-              .opacity(taskDescription.isEmpty ? 0.25 : 0.5)
+            TextEditor(text: $viewModel.taskDescription)
+              .opacity(viewModel.taskDescription.isEmpty ? 0.25 : 0.5)
               .focused($focusedTextField, equals: .taskDescription)
               .onSubmit { focusedTextField = .taskTitle }
               .submitLabel(.next)
@@ -78,17 +76,17 @@ struct CreateTaskView: View {
 
         HStack {
           Button(action: {
-            selectedPriority = "High"
+            viewModel.selectedPriority = "High"
           }) {
             Text("High")
-              .foregroundColor(selectedPriority == "High" ? .accent : .gray)
+              .foregroundColor(viewModel.selectedPriority == "High" ? .accent : .gray)
               .frame(maxWidth: .infinity)
               .padding(12)
               .cornerRadius(10)
               .overlay(
                 RoundedRectangle(cornerRadius: 10)
                   .stroke(
-                    selectedPriority == "High" ? .accent : .gray,
+                    viewModel.selectedPriority == "High" ? .accent : .gray,
                     lineWidth: 1)
               )
           }
@@ -97,17 +95,17 @@ struct CreateTaskView: View {
           Spacer()
 
           Button(action: {
-            selectedPriority = "Medium"
+            viewModel.selectedPriority = "Medium"
           }) {
             Text("Medium")
-              .foregroundColor(selectedPriority == "Medium" ? .accent : .gray)
+              .foregroundColor(viewModel.selectedPriority == "Medium" ? .accent : .gray)
               .frame(maxWidth: .infinity)
               .padding(12)
               .cornerRadius(10)
               .overlay(
                 RoundedRectangle(cornerRadius: 10)
                   .stroke(
-                    selectedPriority == "Medium" ? .accent : .gray,
+                    viewModel.selectedPriority == "Medium" ? .accent : .gray,
                     lineWidth: 1)
               )
           }
@@ -116,17 +114,17 @@ struct CreateTaskView: View {
           Spacer()
 
           Button(action: {
-            selectedPriority = "Low"
+            viewModel.selectedPriority = "Low"
           }) {
             Text("Low")
-              .foregroundColor(selectedPriority == "Low" ? .accent : .gray)
+              .foregroundColor(viewModel.selectedPriority == "Low" ? .accent : .gray)
               .frame(maxWidth: .infinity)
               .padding(12)
               .cornerRadius(10)
               .overlay(
                 RoundedRectangle(cornerRadius: 10)
                   .stroke(
-                    selectedPriority == "Low" ? .accent : .gray,
+                    viewModel.selectedPriority == "Low" ? .accent : .gray,
                     lineWidth: 1)
               )
           }

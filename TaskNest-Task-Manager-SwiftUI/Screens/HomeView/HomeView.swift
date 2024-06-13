@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-  let dateNow = DateUtils.formattedDDMMYYYY(selectedDate: Date())
-  @State var isShowingTodaysTasksScreen: Bool = false
+  @StateObject var viewModel = HomeViewModel()
 
   var body: some View {
     NavigationView {
@@ -20,17 +19,16 @@ struct HomeView: View {
           .font(.title3)
           .fontWeight(.semibold)
 
-        let priorityTask = MockData.tasks.filter { $0.priorityLevel == "High" }
-
-        if priorityTask.isEmpty {
+        if viewModel.priorityTask.isEmpty {
           Text("No priority tasks found")
             .foregroundColor(.gray)
             .padding(.leading)
         } else {
           ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-              ForEach(priorityTask, id: \.id) { task in
-                SmallTaskCard(tasks: task)
+              ForEach(viewModel.priorityTask, id: \.id) { task in
+                let viewModel = SmallTaskCardViewModel(task: task)
+                SmallTaskCard(viewModel: viewModel)
               }
             }
             .frame(height: 175)
@@ -46,7 +44,7 @@ struct HomeView: View {
           Spacer()
           Button(
             action: {
-              isShowingTodaysTasksScreen.toggle()
+              viewModel.isShowingTodaysTasksScreen.toggle()
             },
             label: {
               Text("See all")
@@ -57,15 +55,12 @@ struct HomeView: View {
         .padding(.top)
 
         VStack(spacing: 22) {
-          // filtering and limiting data
-          let threeTasksToday = MockData.tasks.filter { $0.taskDate == dateNow }.prefix(3)
-
-          if threeTasksToday.isEmpty {
+          if viewModel.threeTasksToday.isEmpty {
             Text("No tasks found for today")
               .foregroundColor(.gray)
           } else {
-            ForEach(threeTasksToday, id: \.id) { task in
-              LargeTaskCard(tasks: task)
+            ForEach(viewModel.threeTasksToday, id: \.id) { task in
+              LargeTaskCard(viewModel: LargeTaskCardViewModel(task: task))
             }
           }
         }
@@ -87,7 +82,7 @@ struct HomeView: View {
           }
       )
       .fullScreenCover(
-        isPresented: $isShowingTodaysTasksScreen,
+        isPresented: $viewModel.isShowingTodaysTasksScreen,
         content: {
           TodaysTasksView()
         }

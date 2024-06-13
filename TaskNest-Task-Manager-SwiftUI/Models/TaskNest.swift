@@ -11,8 +11,8 @@ struct TaskNest: Decodable, Identifiable {
   let id: Int
   let taskTitle: String
   let taskDescription: String
-  let taskTimeStart: String
-  let taskTimeEnd: String
+  let taskStartTime: String
+  let taskEndTime: String
   let taskDate: String
   let taskCategory: String
   let priorityLevel: String
@@ -23,8 +23,8 @@ struct MockData {
     id: 001,
     taskTitle: "Meeting with clients 1",
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-    taskTimeStart: "6:00 PM",
-    taskTimeEnd: "8:00 PM",
+    taskStartTime: "6:00 PM",
+    taskEndTime: "8:00 PM",
     taskDate: "12 Mar, 2024",
     taskCategory: "Work",
     priorityLevel: "High")
@@ -33,8 +33,8 @@ struct MockData {
     id: 002,
     taskTitle: "Meeting with clients 2",
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-    taskTimeStart: "6:00 PM",
-    taskTimeEnd: "8:00 PM",
+    taskStartTime: "6:00 PM",
+    taskEndTime: "8:00 PM",
     taskDate: "12 Jun, 2024",
     taskCategory: "Home",
     priorityLevel: "Low")
@@ -43,8 +43,8 @@ struct MockData {
     id: 003,
     taskTitle: "Meeting with clients 3",
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-    taskTimeStart: "6:00 PM",
-    taskTimeEnd: "8:00 PM",
+    taskStartTime: "6:00 PM",
+    taskEndTime: "8:00 PM",
     taskDate: "12 Jun, 2024",
     taskCategory: "Health",
     priorityLevel: "High")
@@ -53,8 +53,8 @@ struct MockData {
     id: 004,
     taskTitle: "Meeting with clients 4",
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-    taskTimeStart: "6:00 PM",
-    taskTimeEnd: "8:00 PM",
+    taskStartTime: "6:00 PM",
+    taskEndTime: "8:00 PM",
     taskDate: "13 Jun, 2024",
     taskCategory: "Finance",
     priorityLevel: "Low")
@@ -63,8 +63,8 @@ struct MockData {
     id: 005,
     taskTitle: "Meeting with clients 5",
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-    taskTimeStart: "6:00 PM",
-    taskTimeEnd: "8:00 PM",
+    taskStartTime: "6:00 PM",
+    taskEndTime: "8:00 PM",
     taskDate: "11 Jun, 2024",
     taskCategory: "Work",
     priorityLevel: "High")
@@ -73,8 +73,8 @@ struct MockData {
     id: 006,
     taskTitle: "Meeting with clients 6",
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
-    taskTimeStart: "6:00 PM",
-    taskTimeEnd: "8:00 PM",
+    taskStartTime: "6:00 PM",
+    taskEndTime: "8:00 PM",
     taskDate: "13 Jun, 2024",
     taskCategory: "Education",
     priorityLevel: "Low")

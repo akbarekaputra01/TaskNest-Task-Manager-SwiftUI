@@ -8,12 +8,7 @@
 import SwiftUI
 
 struct SetTime: View {
-  @State private var selectedDate = Date()
-  @State private var fromSelectedDate = Date()
-  @State private var toSelectedDate = Date()
-
-  @State private var isFromDatePickerShown = false
-  @State private var isToDatePickerShown = false
+  @StateObject var viewModel = SetTimeViewModel()
 
   var body: some View {
     VStack {
@@ -25,7 +20,7 @@ struct SetTime: View {
 
         DatePicker(
           "",
-          selection: $selectedDate,
+          selection: $viewModel.selectedDate,
           displayedComponents: .date
         )
         .datePickerStyle(CompactDatePickerStyle())
@@ -34,11 +29,11 @@ struct SetTime: View {
       HStack {
         ForEach(
           [
-            DateUtils.formattedDay(selectedDate: selectedDate, offset: -2),
-            DateUtils.formattedDay(selectedDate: selectedDate, offset: -1),
-            DateUtils.formattedDay(selectedDate: selectedDate),
-            DateUtils.formattedDay(selectedDate: selectedDate, offset: 1),
-            DateUtils.formattedDay(selectedDate: selectedDate, offset: 2),
+            viewModel.daySelectedMinTwo,
+            viewModel.daySelectedMinOne,
+            viewModel.daySelected,
+            viewModel.daySelectedMinOne,
+            viewModel.daySelectedMinTwo,
           ],
           id: \.self
         ) { day in
@@ -54,41 +49,43 @@ struct SetTime: View {
       HStack {
         ForEach(
           [
-            DateUtils.formattedDate(selectedDate: selectedDate, offset: -2),
-            DateUtils.formattedDate(selectedDate: selectedDate, offset: -1),
-            DateUtils.formattedDate(selectedDate: selectedDate),
-            DateUtils.formattedDate(selectedDate: selectedDate, offset: 1),
-            DateUtils.formattedDate(selectedDate: selectedDate, offset: 2),
+            viewModel.dateSelectedMinTwo,
+            viewModel.dateSelectedMinOne,
+            viewModel.dateSelected,
+            viewModel.dateSelectedMinOne,
+            viewModel.dateSelectedMinTwo,
           ], id: \.self
-        ) { day in
+        ) { date in
+
           Spacer()
-          if day == "\(DateUtils.formattedDate(selectedDate: selectedDate))" {
+          if date == viewModel.formattedDateSelected {
             Circle()
               .fill(.accent)
               .frame(width: 40, height: 40)
               .overlay(
-                Text("\(day)")
+                Text("\(date)")
                   .font(.body)
                   .foregroundColor(.white)
               )
           } else {
-            Text("\(day)")
+            Text("\(date)")
               .font(.body)
               .frame(width: 40, height: 40)
           }
           Spacer()
+
         }
       }
 
       HStack {
         Button(action: {
-          isFromDatePickerShown.toggle()
+          viewModel.isDatePickerStartShown.toggle()
         }) {
           HStack {
             Text("From")
             Spacer()
             Text(
-              "\(DateUtils.formattedHour(selectedDate: fromSelectedDate)):\(DateUtils.formattedMinute(selectedDate: fromSelectedDate))"
+              viewModel.formattedHourAndMinuteStart
             ).fontWeight(.bold)
             Spacer()
             Image(systemName: "chevron.down")
@@ -100,11 +97,11 @@ struct SetTime: View {
               .stroke(Color.gray.opacity(0.5), lineWidth: 1)
           )
         }
-        .sheet(isPresented: $isFromDatePickerShown) {
+        .sheet(isPresented: $viewModel.isDatePickerStartShown) {
           VStack {
             DatePicker(
               "From",
-              selection: $fromSelectedDate,
+              selection: $viewModel.selectedDateStart,
               displayedComponents: .hourAndMinute
             )
             .labelsHidden()
@@ -113,7 +110,7 @@ struct SetTime: View {
 
             Button(
               action: {
-                isFromDatePickerShown.toggle()
+                viewModel.isDatePickerStartShown.toggle()
               },
               label: {
                 Text("Done")
@@ -123,13 +120,13 @@ struct SetTime: View {
         }
 
         Button(action: {
-          isToDatePickerShown.toggle()
+          viewModel.isDatePickerEndShown.toggle()
         }) {
           HStack {
             Text("To")
             Spacer()
             Text(
-              "\(DateUtils.formattedHour(selectedDate: toSelectedDate)):\(DateUtils.formattedMinute(selectedDate: toSelectedDate))"
+              viewModel.formattedHourAndMinuteEnd
             ).fontWeight(.bold)
             Spacer()
             Image(systemName: "chevron.down")
@@ -141,11 +138,11 @@ struct SetTime: View {
               .stroke(Color.gray.opacity(0.5), lineWidth: 1)
           )
         }
-        .sheet(isPresented: $isToDatePickerShown) {
+        .sheet(isPresented: $viewModel.isDatePickerEndShown) {
           VStack {
             DatePicker(
               "To",
-              selection: $toSelectedDate,
+              selection: $viewModel.selectedDateEnd,
               displayedComponents: .hourAndMinute
             )
             .labelsHidden()
@@ -154,7 +151,7 @@ struct SetTime: View {
 
             Button(
               action: {
-                isToDatePickerShown.toggle()
+                viewModel.isDatePickerEndShown.toggle()
               },
               label: {
                 Text("Done")
