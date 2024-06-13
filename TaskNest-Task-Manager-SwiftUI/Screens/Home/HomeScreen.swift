@@ -33,10 +33,10 @@ struct HomeScreen: View {
                 SmallTasksCardView(tasks: task)
               }
             }
+            .frame(height: 170)
+            .padding(.leading, 3)
+            .padding(.trailing, 10)
           }
-          .frame(height: 170)
-          .padding(.leading, 3)
-          .padding(.trailing, 10)
         }
 
         HStack {

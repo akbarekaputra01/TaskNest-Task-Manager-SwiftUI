@@ -29,9 +29,9 @@ struct TodaysTasksScreen: View {
                 LargeTasksCardView(tasks: task)
               }
             }
+            .padding(.horizontal)
+            .padding(.top)
           }
-          .padding(.horizontal)
-          .padding(.top)
         }
 
       }

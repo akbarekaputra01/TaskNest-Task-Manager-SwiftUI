@@ -47,8 +47,7 @@ struct CalendarScreen: View {
               LargeTasksCardView(tasks: task)
             }
           }
-          .padding(.vertical)
-          .padding(.horizontal)
+          .padding()
         }
       }
 

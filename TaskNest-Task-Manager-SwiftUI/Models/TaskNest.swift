@@ -55,7 +55,7 @@ struct MockData {
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
     taskTimeStart: "6:00 PM",
     taskTimeEnd: "8:00 PM",
-    taskDate: "12 Jun, 2024",
+    taskDate: "13 Jun, 2024",
     taskCategory: "Finance",
     priorityLevel: "Low")
 
@@ -75,7 +75,7 @@ struct MockData {
     taskDescription: "Worem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.",
     taskTimeStart: "6:00 PM",
     taskTimeEnd: "8:00 PM",
-    taskDate: "12 Jun, 2024",
+    taskDate: "13 Jun, 2024",
     taskCategory: "Education",
     priorityLevel: "Low")
 

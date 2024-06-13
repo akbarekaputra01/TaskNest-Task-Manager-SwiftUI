@@ -27,8 +27,7 @@ struct TasksScreen: View {
                 LargeTasksCardView(tasks: task)
               }
             }
-            .padding(.horizontal)
-            .padding(.top)
+            .padding()
           }
         }
       }
