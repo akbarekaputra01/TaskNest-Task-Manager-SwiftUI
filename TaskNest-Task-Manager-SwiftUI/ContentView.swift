@@ -13,7 +13,7 @@ struct ContentView: View {
   var body: some View {
     ZStack {
       if isWelcome {
-        WelcomeScreen(isWelcome: $isWelcome)
+        WelcomeView(isWelcome: $isWelcome)
       } else {
         TaskNestTabView()
       }

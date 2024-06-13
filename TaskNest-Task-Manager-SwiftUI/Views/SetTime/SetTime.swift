@@ -1,5 +1,5 @@
 //
-//  SetTimeView.swift
+//  SetTime.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 11/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SetTimeView: View {
+struct SetTime: View {
   @State private var selectedDate = Date()
   @State private var fromSelectedDate = Date()
   @State private var toSelectedDate = Date()
@@ -171,5 +171,5 @@ struct SetTimeView: View {
 }
 
 #Preview{
-  SetTimeView()
+  SetTime()
 }

@@ -1,5 +1,5 @@
 //
-//  CreateTaskScreen.swift
+//  CreateTaskView.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 09/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CreateTaskScreen: View {
+struct CreateTaskView: View {
   // to close this screen
   @Environment(\.presentationMode) var presentationMode
 
@@ -67,7 +67,7 @@ struct CreateTaskScreen: View {
             .stroke(Color.gray.opacity(0.5), lineWidth: 1)
         )
 
-        SetTimeView()
+        SetTime()
           .padding(.top)
 
         Text("Select Priority")
@@ -169,8 +169,8 @@ struct CreateTaskScreen: View {
   }
 }
 
-struct CreateTaskScreen_Previews: PreviewProvider {
+struct CreateTaskView_Previews: PreviewProvider {
   static var previews: some View {
-    CreateTaskScreen()
+    CreateTaskView()
   }
 }

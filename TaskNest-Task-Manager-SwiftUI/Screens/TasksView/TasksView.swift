@@ -1,5 +1,5 @@
 //
-//  TasksScreen.swift
+//  TasksView.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 10/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TasksScreen: View {
+struct TasksView: View {
   @State var isShowingCreateTaskScreen: Bool = false
 
   var body: some View {
@@ -24,7 +24,7 @@ struct TasksScreen: View {
             VStack(alignment: .leading, spacing: 22) {
 
               ForEach(allTasks, id: \.id) { task in
-                LargeTasksCardView(tasks: task)
+                LargeTaskCard(tasks: task)
               }
             }
             .padding()
@@ -51,12 +51,12 @@ struct TasksScreen: View {
     .fullScreenCover(
       isPresented: $isShowingCreateTaskScreen,
       content: {
-        CreateTaskScreen()
+        CreateTaskView()
       }
     )
   }
 }
 
 #Preview{
-  TasksScreen()
+  TasksView()
 }

@@ -1,5 +1,5 @@
 //
-//  WelcomeScreen.swift
+//  WelcomeView.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 09/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WelcomeScreen: View {
+struct WelcomeView: View {
   @Binding var isWelcome: Bool
 
   var body: some View {
@@ -54,5 +54,5 @@ struct WelcomeScreen: View {
 }
 
 #Preview{
-  WelcomeScreen(isWelcome: .constant(true))
+  WelcomeView(isWelcome: .constant(true))
 }

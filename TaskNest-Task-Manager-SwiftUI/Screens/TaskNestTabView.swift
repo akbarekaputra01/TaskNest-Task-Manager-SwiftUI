@@ -10,13 +10,13 @@ import SwiftUI
 struct TaskNestTabView: View {
   var body: some View {
     TabView {
-      HomeScreen()
+      HomeView()
         .tabItem { Label("Home", systemImage: "house") }
-      TasksScreen()
+      TasksView()
         .tabItem { Label("Tasks", systemImage: "list.clipboard") }
-      CalendarScreen()
+      CalendarView()
         .tabItem { Label("Calendar", systemImage: "calendar") }
-      AccountScreen()
+      AccountView()
         .tabItem { Label("Account", systemImage: "person") }
     }
   }

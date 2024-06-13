@@ -1,5 +1,5 @@
 //
-//  TodaysTasks.swift
+//  TodaysTasksView.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 12/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TodaysTasksScreen: View {
+struct TodaysTasksView: View {
   // to close this screen
   @Environment(\.presentationMode) var presentationMode
 
@@ -26,7 +26,7 @@ struct TodaysTasksScreen: View {
           ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 22) {
               ForEach(todayTasks, id: \.id) { task in
-                LargeTasksCardView(tasks: task)
+                LargeTaskCard(tasks: task)
               }
             }
             .padding(.horizontal)
@@ -55,5 +55,5 @@ struct TodaysTasksScreen: View {
 }
 
 #Preview{
-  TodaysTasksScreen()
+  TodaysTasksView()
 }

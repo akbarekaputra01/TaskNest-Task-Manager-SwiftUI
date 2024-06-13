@@ -1,5 +1,5 @@
 //
-//  HomeScreen.swift
+//  HomeView.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 09/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeScreen: View {
+struct HomeView: View {
   let dateNow = DateUtils.formattedDDMMYYYY(selectedDate: Date())
   @State var isShowingTodaysTasksScreen: Bool = false
 
@@ -30,7 +30,7 @@ struct HomeScreen: View {
           ScrollView(.horizontal, showsIndicators: false) {
             HStack {
               ForEach(priorityTask, id: \.id) { task in
-                SmallTasksCardView(tasks: task)
+                SmallTaskCard(tasks: task)
               }
             }
             .frame(height: 175)
@@ -65,7 +65,7 @@ struct HomeScreen: View {
               .foregroundColor(.gray)
           } else {
             ForEach(threeTasksToday, id: \.id) { task in
-              LargeTasksCardView(tasks: task)
+              LargeTaskCard(tasks: task)
             }
           }
         }
@@ -89,7 +89,7 @@ struct HomeScreen: View {
       .fullScreenCover(
         isPresented: $isShowingTodaysTasksScreen,
         content: {
-          TodaysTasksScreen()
+          TodaysTasksView()
         }
       )
     }
@@ -97,5 +97,5 @@ struct HomeScreen: View {
 }
 
 #Preview{
-  HomeScreen()
+  HomeView()
 }

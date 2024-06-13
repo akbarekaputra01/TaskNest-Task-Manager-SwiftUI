@@ -1,5 +1,5 @@
 //
-//  CalendarScreen.swift
+//  CalendarView.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 09/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CalendarScreen: View {
+struct CalendarView: View {
   @State private var selectedDate = Date()
 
   var body: some View {
@@ -44,7 +44,7 @@ struct CalendarScreen: View {
               }, id: \.id
             ) {
               task in
-              LargeTasksCardView(tasks: task)
+              LargeTaskCard(tasks: task)
             }
           }
           .padding()
@@ -57,5 +57,5 @@ struct CalendarScreen: View {
 }
 
 #Preview{
-  CalendarScreen()
+  CalendarView()
 }
