@@ -32,16 +32,23 @@ struct SetTime: View {
             viewModel.daySelectedMinTwo,
             viewModel.daySelectedMinOne,
             viewModel.daySelected,
-            viewModel.daySelectedMinOne,
-            viewModel.daySelectedMinTwo,
+            viewModel.daySelectedPlusOne,
+            viewModel.daySelectedPlusTwo,
           ],
           id: \.self
         ) { day in
           Spacer()
-          Text(day)
-            .font(.body)
-            .foregroundStyle(.gray)
-            .frame(width: 40, height: 40)
+          Button(
+            action: {
+              print(day)
+            },
+            label: {
+              Text(day)
+                .font(.body)
+                .foregroundStyle(.gray)
+                .frame(width: 40, height: 40)
+            })
+
           Spacer()
         }
       }
@@ -52,28 +59,34 @@ struct SetTime: View {
             viewModel.dateSelectedMinTwo,
             viewModel.dateSelectedMinOne,
             viewModel.dateSelected,
-            viewModel.dateSelectedMinOne,
-            viewModel.dateSelectedMinTwo,
+            viewModel.dateSelectedPlusOne,
+            viewModel.dateSelectedPlusTwo,
           ], id: \.self
         ) { date in
-
           Spacer()
-          if date == viewModel.formattedDateSelected {
-            Circle()
-              .fill(.accent)
-              .frame(width: 40, height: 40)
-              .overlay(
+          Button(
+            action: {
+              viewModel.updateDateFromMyCalendarClicked(date: date)
+            },
+            label: {
+              if date == viewModel.formattedDateSelected {
+                Circle()
+                  .fill(.accent)
+                  .frame(width: 40, height: 40)
+                  .overlay(
+                    Text("\(date)")
+                      .font(.body)
+                      .foregroundColor(.white)
+                  )
+              } else {
                 Text("\(date)")
                   .font(.body)
-                  .foregroundColor(.white)
-              )
-          } else {
-            Text("\(date)")
-              .font(.body)
-              .frame(width: 40, height: 40)
-          }
+                  .frame(width: 40, height: 40)
+                  .foregroundColor(.primary)
+              }
+            }
+          )
           Spacer()
-
         }
       }
 
@@ -83,12 +96,14 @@ struct SetTime: View {
         }) {
           HStack {
             Text("From")
+              .foregroundColor(.gray)
             Spacer()
             Text(
               viewModel.formattedHourAndMinuteStart
             ).fontWeight(.bold)
             Spacer()
             Image(systemName: "chevron.down")
+              .foregroundColor(.gray)
           }
           .padding()
           .cornerRadius(8)
@@ -124,12 +139,14 @@ struct SetTime: View {
         }) {
           HStack {
             Text("To")
+              .foregroundColor(.gray)
             Spacer()
             Text(
               viewModel.formattedHourAndMinuteEnd
             ).fontWeight(.bold)
             Spacer()
             Image(systemName: "chevron.down")
+              .foregroundColor(.gray)
           }
           .padding()
           .cornerRadius(8)

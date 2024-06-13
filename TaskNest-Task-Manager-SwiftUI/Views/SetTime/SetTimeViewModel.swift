@@ -71,4 +71,16 @@ final class SetTimeViewModel: ObservableObject {
     return
       "\(DateUtils.formattedHour(selectedDate: self.selectedDateEnd)):\(DateUtils.formattedMinute(selectedDate: self.selectedDateEnd))"
   }
+
+  func updateDateFromMyCalendarClicked(date: String) {
+    let result = (Int(date)!) - (Int(self.formattedDateSelected)!)
+
+    if let updateSelectedDate = Calendar.current.date(
+      byAdding: .day, value: result, to: selectedDate)
+    {
+      self.selectedDate = updateSelectedDate
+    } else {
+      print("Fail update selected date")
+    }
+  }
 }
