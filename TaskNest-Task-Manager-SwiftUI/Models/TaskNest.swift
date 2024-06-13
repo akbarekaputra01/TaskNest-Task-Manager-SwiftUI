@@ -79,7 +79,7 @@ struct MockData {
     taskCategory: "Education",
     priorityLevel: "Low")
 
-  static let tasks = [
+  static let tasks: [TaskNest] = [
     sampleTaskOne, sampleTaskTwo, sampleTaskThree,
     sampleTaskFour, sampleTaskFive, sampleTaskSix,
     sampleTaskOne, sampleTaskTwo, sampleTaskThree,

@@ -15,16 +15,25 @@ struct TodaysTasksScreen: View {
 
   var body: some View {
     NavigationView {
-      ScrollView(.vertical, showsIndicators: false) {
-        VStack(alignment: .leading, spacing: 22) {
-          ForEach(MockData.tasks, id: \.id) { task in
-            if task.taskDate == dateNow {
-              TodaysTasksCardView(tasks: task)
+      VStack {
+        let todayTasks = MockData.tasks.filter { $0.taskDate == dateNow }
+        if todayTasks.isEmpty {
+          Spacer()
+          Text("No tasks found for today")
+            .foregroundColor(.gray)
+          Spacer()
+        } else {
+          ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 22) {
+              ForEach(todayTasks, id: \.id) { task in
+                LargeTasksCardView(tasks: task)
+              }
             }
           }
+          .padding(.horizontal)
+          .padding(.top)
         }
-        .padding(.horizontal)
-        .padding(.top)
+
       }
 
       .navigationBarTitle("Today's Tasks", displayMode: .inline)
@@ -48,4 +57,3 @@ struct TodaysTasksScreen: View {
 #Preview{
   TodaysTasksScreen()
 }
-//

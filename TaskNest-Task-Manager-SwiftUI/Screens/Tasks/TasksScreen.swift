@@ -12,14 +12,25 @@ struct TasksScreen: View {
 
   var body: some View {
     NavigationView {
-      ScrollView(.vertical, showsIndicators: false) {
-        VStack(alignment: .leading, spacing: 22) {
-          ForEach(MockData.tasks, id: \.id) { task in
-            TodaysTasksCardView(tasks: task)
+      VStack {
+        let allTasks = MockData.tasks
+        if allTasks.isEmpty {
+          Spacer()
+          Text("No tasks found")
+            .foregroundColor(.gray)
+          Spacer()
+        } else {
+          ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 22) {
+
+              ForEach(allTasks, id: \.id) { task in
+                LargeTasksCardView(tasks: task)
+              }
+            }
+            .padding(.horizontal)
+            .padding(.top)
           }
         }
-        .padding(.horizontal)
-        .padding(.top)
       }
 
       .navigationBarTitle("Tasks", displayMode: .inline)
@@ -36,8 +47,7 @@ struct TasksScreen: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 25)
                 .foregroundColor(.isDark)
-            })
-      )
+            }))
     }
     .fullScreenCover(
       isPresented: $isShowingCreateTaskScreen,

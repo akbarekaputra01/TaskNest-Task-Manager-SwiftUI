@@ -20,11 +20,17 @@ struct HomeScreen: View {
           .font(.title3)
           .fontWeight(.semibold)
 
-        ScrollView(.horizontal, showsIndicators: false) {
-          HStack {
-            ForEach(MockData.tasks, id: \.id) { task in
-              if task.priorityLevel == "High" {
-                TopPriorityTasksCardView(tasks: task)
+        let priorityTask = MockData.tasks.filter { $0.priorityLevel == "High" }
+
+        if priorityTask.isEmpty {
+          Text("No priority tasks found")
+            .foregroundColor(.gray)
+            .padding(.leading)
+        } else {
+          ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+              ForEach(priorityTask, id: \.id) { task in
+                SmallTasksCardView(tasks: task)
               }
             }
           }
@@ -52,13 +58,18 @@ struct HomeScreen: View {
 
         VStack(spacing: 22) {
           // filtering and limiting data
-          ForEach(MockData.tasks.filter { $0.taskDate == dateNow }.prefix(3), id: \.id) {
-            task in
-            TodaysTasksCardView(tasks: task)
+          let threeTasksToday = MockData.tasks.filter { $0.taskDate == dateNow }.prefix(3)
+
+          if threeTasksToday.isEmpty {
+            Text("No tasks found for today")
+              .foregroundColor(.gray)
+          } else {
+            ForEach(threeTasksToday, id: \.id) { task in
+              LargeTasksCardView(tasks: task)
+            }
           }
         }
         .padding(.horizontal)
-        .padding(.top, 8)
 
         Spacer()
       }
