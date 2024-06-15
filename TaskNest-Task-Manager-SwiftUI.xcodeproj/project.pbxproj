@@ -49,9 +49,11 @@
 		65F1BF9D2C16004C00A405EB /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF9C2C16004C00A405EB /* CreateTaskView.swift */; };
 		65F6B7EC2C1D8535009A8CE0 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F6B7EB2C1D8535009A8CE0 /* SignupViewModel.swift */; };
 		65F6B7EF2C1D9C9A009A8CE0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F6B7EE2C1D9C9A009A8CE0 /* Alert.swift */; };
+		65F6B7F12C1DA641009A8CE0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F6B7F02C1DA641009A8CE0 /* User.swift */; };
 		65F984172C1719790008524A /* LargeTaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F984162C1719790008524A /* LargeTaskCard.swift */; };
 		65F9841A2C173B200008524A /* TaskNest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F984192C173B200008524A /* TaskNest.swift */; };
 		65F9841E2C174EEF0008524A /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F9841D2C174EEF0008524A /* TasksView.swift */; };
+		65FE10422C1DDE09006091F2 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE10412C1DDE09006091F2 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,9 +90,11 @@
 		65F1BF9C2C16004C00A405EB /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		65F6B7EB2C1D8535009A8CE0 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		65F6B7EE2C1D9C9A009A8CE0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		65F6B7F02C1DA641009A8CE0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		65F984162C1719790008524A /* LargeTaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTaskCard.swift; sourceTree = "<group>"; };
 		65F984192C173B200008524A /* TaskNest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNest.swift; sourceTree = "<group>"; };
 		65F9841D2C174EEF0008524A /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		65FE10412C1DDE09006091F2 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +262,7 @@
 				6548FE732C16999A009E36E4 /* Image+Ext.swift */,
 				6548FE782C169C91009E36E4 /* View+Ext.swift */,
 				659C50D72C1BD1D0000B390A /* Date+Ext.swift */,
+				65FE10412C1DDE09006091F2 /* String+Ext.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				65F984192C173B200008524A /* TaskNest.swift */,
+				65F6B7F02C1DA641009A8CE0 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 				65B1E6962C18705600DDC69C /* DateUtils.swift in Sources */,
 				65161D862C1B2495007D1DAB /* SetTimeViewModel.swift in Sources */,
 				6548FE792C169C91009E36E4 /* View+Ext.swift in Sources */,
+				65F6B7F12C1DA641009A8CE0 /* User.swift in Sources */,
 				6548FE742C16999A009E36E4 /* Image+Ext.swift in Sources */,
 				65F9841E2C174EEF0008524A /* TasksView.swift in Sources */,
 				65F6B7EC2C1D8535009A8CE0 /* SignupViewModel.swift in Sources */,
@@ -440,6 +447,7 @@
 				65F1BF9A2C15FFDC00A405EB /* CalendarView.swift in Sources */,
 				657C15352C15816900BA2A09 /* ContentView.swift in Sources */,
 				65161D842C1B14C0007D1DAB /* LargeTaskCardViewModel.swift in Sources */,
+				65FE10422C1DDE09006091F2 /* String+Ext.swift in Sources */,
 				659C50D82C1BD1D0000B390A /* Date+Ext.swift in Sources */,
 				653317F02C15E0E000740298 /* WelcomeView.swift in Sources */,
 				6510D63A2C1ACDA4000D194D /* TodaysTasksViewModel.swift in Sources */,
