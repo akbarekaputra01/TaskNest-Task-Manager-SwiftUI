@@ -8,72 +8,40 @@
 import Firebase
 import SwiftUI
 
-struct SignUpView: View {
+struct SigupView: View {
   // to close this screen
   @Environment(\.presentationMode) var presentationMode
 
-  @State private var email = ""
-  @State private var password = ""
-  @State private var confirmPassword = ""
-  @State private var isAgree = false
-  @State private var isLoggedIn: Bool = false
-  @State private var isCompleted = false
-
-  func register() {
-    guard isAgree == true else {
-      print("Please agree term and conditions.")
-      return
-    }
-
-    // Validate password and confirm password
-    guard password == confirmPassword else {
-      print("Passwords do not match.")
-      return
-    }
-
-    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-      if let error = error {
-        print("Error registering user: \(error.localizedDescription)")
-      } else {
-        print("User registered successfully.")
-        isLoggedIn = true
-        presentationMode.wrappedValue.dismiss()
-      }
-    }
-  }
-
-  func signOut() {
-    do {
-      try Auth.auth().signOut()
-      isLoggedIn = false
-    } catch {
-      print("Error signing out: \(error.localizedDescription)")
-    }
-  }
+  @StateObject var viewModel = SignupViewModel()
 
   var body: some View {
     NavigationView {
       VStack(alignment: .leading, spacing: 22) {
         Spacer()
-        Text("Create Account")
-          .font(.largeTitle)
-          .bold()
 
-        TextField("Email", text: $email)
+        HStack {
+          Spacer()
+          Text("Sign Up")
+            .font(.largeTitle)
+            .bold()
+          Spacer()
+        }
+
+        TextField("Email", text: $viewModel.email)
           .padding()
           .background(Color(.systemGray6))
           .cornerRadius(10)
           .autocapitalization(.none)
           .disableAutocorrection(true)
 
-        SecureField("Password", text: $password)
+        SecureField("Password", text: $viewModel.password)
           .padding()
           .background(Color(.systemGray6))
           .cornerRadius(10)
           .autocapitalization(.none)
           .disableAutocorrection(true)
 
-        SecureField("Password", text: $confirmPassword)
+        SecureField("Password", text: $viewModel.confirmPassword)
           .padding()
           .background(Color(.systemGray6))
           .cornerRadius(10)
@@ -82,29 +50,35 @@ struct SignUpView: View {
 
         HStack {
           Button {
-            isAgree.toggle()
+            viewModel.isAgree.toggle()
           } label: {
-            Image(systemName: isAgree ? "checkmark.circle.fill" : "circle")
+            Image(systemName: viewModel.isAgree ? "checkmark.circle.fill" : "circle")
           }
           Text("Agree with Terms & Conditions")
           Spacer()
         }
 
         Button(action: {
-          register()
+          viewModel.register()
         }) {
           Text("Sign up")
+            .frame(maxWidth: .infinity)
             .fontWeight(.bold)
         }
         .padding()
-        .frame(maxWidth: .infinity)
-        .disabled(email.isEmpty || password.isEmpty || confirmPassword.isEmpty)
+        .disabled(
+          viewModel.email.isEmpty || viewModel.password.isEmpty || viewModel.confirmPassword.isEmpty
+        )
         .background(Color.accentColor)
         .foregroundColor(.white)
         .cornerRadius(10)
         .opacity(
-          email.isEmpty
-            ? 0.8 : password.isEmpty ? 0.8 : confirmPassword.isEmpty ? 0.8 : !isAgree ? 0.8 : 1)
+          viewModel.email.isEmpty
+            ? 0.5
+            : viewModel.password.isEmpty
+              ? 0.5
+              : viewModel.confirmPassword.isEmpty
+                ? 0.5 : !viewModel.isAgree ? 0.5 : 1)
 
         HStack {
           Rectangle()
@@ -159,26 +133,22 @@ struct SignUpView: View {
         HStack {
           Spacer()
           Text("Already have Account?")
-          NavigationLink(destination: LoginView()) {
+          NavigationLink(destination: AccountView().navigationBarBackButtonHidden()) {
             Text("Sign In")
+              .fontWeight(.bold)
           }
           Spacer()
         }
 
         Spacer()
       }
+
       .padding()
     }
 
   }
 }
 
-struct LoginView: View {
-  var body: some View {
-    Text("Login View")
-  }
-}
-
 #Preview{
-  SignUpView()
+  SigupView()
 }
