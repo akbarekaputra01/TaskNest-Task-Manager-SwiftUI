@@ -8,12 +8,13 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.akbarekaputra01.TaskNest-Task-Manager-SwiftUI</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.755015709224-4ur43avfbrn287b3ja2fs97f2l0ipniv</string>
 			</array>
 		</dict>
+		<dict/>
 	</array>
 </dict>
 </plist>
