@@ -25,11 +25,45 @@ struct SigupView: View {
         ScrollView {
           VStack(alignment: .leading, spacing: 22) {
             HStack {
-              Spacer()
               Text("Sign Up")
                 .font(.largeTitle)
                 .bold()
+
               Spacer()
+
+              if let image = viewModel.signupImage {
+                Image(uiImage: image)
+                  .resizable()
+                  .scaledToFill()
+                  .frame(width: 50, height: 50)
+                  .clipShape(Circle())
+              } else {
+                Button(action: {
+                  viewModel.showingImagePicker.toggle()
+                }) {
+                  ZStack {
+                    Image("blankPP")
+                      .resizable()
+                      .scaledToFit()
+                      .frame(width: 50, height: 50)
+                      .clipShape(Circle())
+                      .opacity(0.5)
+
+                    Image(systemName: "plus")
+                      .resizable()
+                      .scaledToFit()
+                      .frame(width: 10)
+                      .foregroundColor(.white)
+                      .padding(5)
+                      .background(Color.accent)
+                      .clipShape(Circle())
+                      .offset(x: 16, y: 16)
+                  }
+                }
+                .sheet(isPresented: $viewModel.showingImagePicker) {
+                  ImagePicker(image: $viewModel.signupImage)
+                }
+              }
             }
 
             TextField("Name", text: $viewModel.user.name)
@@ -89,32 +123,45 @@ struct SigupView: View {
                 Image(systemName: viewModel.isAgree ? "checkmark.circle.fill" : "circle")
               }
               Text("Agree with Terms & Conditions")
-                .font(.caption2)
+                .font(.caption)
               Spacer()
             }
 
             Button(action: {
               viewModel.signup()
             }) {
-              Text("Sign up")
-                .frame(maxWidth: .infinity)
-                .fontWeight(.bold)
+              ZStack {
+                if viewModel.isLoading {
+                  ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                  // .scaleEffect(1.25)
+                } else {
+                  Text("Sign up")
+                    .fontWeight(.bold)
+                }
+              }
+              .frame(maxWidth: .infinity)
             }
-            .padding()
             .disabled(
-              viewModel.user.email.isEmpty || viewModel.user.password.isEmpty
-                || viewModel.confirmPassword.isEmpty
+              viewModel.user.name.isEmpty || viewModel.user.username.isEmpty
+                || viewModel.user.email.isEmpty || viewModel.user.password.isEmpty
+                || viewModel.confirmPassword.isEmpty || !viewModel.isAgree
             )
+            .padding()
             .background(Color.accentColor)
             .foregroundColor(.white)
             .cornerRadius(10)
             .opacity(
-              viewModel.user.email.isEmpty
+              viewModel.user.name.isEmpty
                 ? 0.5
-                : viewModel.user.password.isEmpty
+                : viewModel.user.username.isEmpty
                   ? 0.5
-                  : viewModel.confirmPassword.isEmpty
-                    ? 0.5 : !viewModel.isAgree ? 0.5 : 1
+                  : viewModel.user.email.isEmpty
+                    ? 0.5
+                    : viewModel.user.password.isEmpty
+                      ? 0.5
+                      : viewModel.confirmPassword.isEmpty
+                        ? 0.5 : viewModel.isAgree ? 1 : 0.5
             )
 
             HStack {

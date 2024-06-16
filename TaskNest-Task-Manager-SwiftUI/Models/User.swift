@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct User: Codable, Identifiable {
-  var id = UUID()
+  var id: String = ""
   var name: String = ""
   var username: String = ""
   var email: String = ""
   var password: String = ""
+  var imageUrl: String = ""
+  var createdAt: Date = Date()
 }

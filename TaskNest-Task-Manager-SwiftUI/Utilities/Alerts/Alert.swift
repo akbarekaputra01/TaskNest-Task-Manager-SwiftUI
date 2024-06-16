@@ -41,12 +41,12 @@ struct AlertContext {
     dismissButton: .default(Text("OK")))
 
   static let invalidRegist = AlertItem(
-    title: Text("Regist Error"),
+    title: Text("Registration Error"),
     message: Text("An error occurred when regitering."),
     dismissButton: .default(Text("OK")))
 
   static let userRegistSuccess = AlertItem(
-    title: Text("Regist Success"),
+    title: Text("Registration Successful"),
     message: Text("Your profile information was successfully saved."),
     dismissButton: .default(Text("OK")))
 
