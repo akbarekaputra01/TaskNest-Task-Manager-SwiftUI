@@ -1,5 +1,5 @@
 //
-//  LargeTaskCard.swift
+//  LargeTaskCardView.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 10/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LargeTaskCard: View {
+struct LargeTaskCardView: View {
   @ObservedObject var viewModel: LargeTaskCardViewModel
 
   var body: some View {
@@ -43,6 +43,6 @@ struct LargeTaskCard: View {
 }
 
 #Preview{
-  LargeTaskCard(
+  LargeTaskCardView(
     viewModel: LargeTaskCardViewModel(task: MockData.sampleTaskTwo))
 }

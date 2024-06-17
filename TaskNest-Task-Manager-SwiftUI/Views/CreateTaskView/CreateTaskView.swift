@@ -65,7 +65,7 @@ struct CreateTaskView: View {
             .stroke(Color.gray.opacity(0.5), lineWidth: 1)
         )
 
-        SetTime()
+        SetTimeView()
           .padding(.top)
 
         Text("Select Priority")

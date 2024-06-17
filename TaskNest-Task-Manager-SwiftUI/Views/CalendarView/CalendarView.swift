@@ -38,7 +38,7 @@ struct CalendarView: View {
               viewModel.tasksOnSelectedDate, id: \.id
             ) {
               task in
-              LargeTaskCard(viewModel: LargeTaskCardViewModel(task: task))
+              LargeTaskCardView(viewModel: LargeTaskCardViewModel(task: task))
             }
           }
           .padding()

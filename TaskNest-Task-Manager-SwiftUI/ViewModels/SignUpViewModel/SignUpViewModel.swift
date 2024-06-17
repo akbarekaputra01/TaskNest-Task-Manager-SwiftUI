@@ -1,5 +1,5 @@
 //
-//  SignupViewModel.swift
+//  SignUpViewModel.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 15/06/24.
@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 import FirebaseStorage
 import SwiftUI
 
-final class SignupViewModel: ObservableObject {
+final class SignUpViewModel: ObservableObject {
   @AppStorage("user") private var userData: Data?
 
   @Published var user = User()
@@ -20,7 +20,7 @@ final class SignupViewModel: ObservableObject {
   @Published var confirmPassword = ""
   @Published var isAgree = false
 
-  @Published var signupImage: UIImage?
+  @Published var signUpImage: UIImage?
   @Published var showingImagePicker = false
 
   @Published var isLoading = false
@@ -54,7 +54,7 @@ final class SignupViewModel: ObservableObject {
     return true
   }
 
-  func signup() {
+  func signUp() {
     guard isValidRegisterForm else { return }
     self.isLoading = true
     createUserAuth()
@@ -87,7 +87,7 @@ final class SignupViewModel: ObservableObject {
     let storageReference = storage.reference()
     let imageRef = storageReference.child("profilePictures").child(self.user.id)
 
-    if let imageData = self.signupImage?.jpegData(compressionQuality: 0.5) {
+    if let imageData = self.signUpImage?.jpegData(compressionQuality: 0.5) {
       imageRef.putData(imageData, metadata: nil) { [weak self] metadata, error in
         guard let self = self else { return }
 

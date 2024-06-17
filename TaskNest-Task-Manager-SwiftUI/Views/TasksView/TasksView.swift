@@ -22,7 +22,7 @@ struct TasksView: View {
           ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 22) {
               ForEach(viewModel.allTasks, id: \.id) { task in
-                LargeTaskCard(viewModel: LargeTaskCardViewModel(task: task))
+                LargeTaskCardView(viewModel: LargeTaskCardViewModel(task: task))
               }
             }
             .padding()

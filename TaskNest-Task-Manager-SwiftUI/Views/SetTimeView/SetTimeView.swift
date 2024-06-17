@@ -1,5 +1,5 @@
 //
-//  SetTime.swift
+//  SetTimeView.swift
 //  TaskNest-Task-Manager-SwiftUI
 //
 //  Created by Akbar Eka Putra on 11/06/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SetTime: View {
+struct SetTimeView: View {
   @StateObject var viewModel = SetTimeViewModel()
 
   var body: some View {
@@ -185,5 +185,5 @@ struct SetTime: View {
 }
 
 #Preview{
-  SetTime()
+  SetTimeView()
 }

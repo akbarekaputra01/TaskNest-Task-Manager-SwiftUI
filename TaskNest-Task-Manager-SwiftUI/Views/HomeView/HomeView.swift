@@ -28,7 +28,7 @@ struct HomeView: View {
             HStack {
               ForEach(viewModel.priorityTask, id: \.id) { task in
                 let viewModel = SmallTaskCardViewModel(task: task)
-                SmallTaskCard(viewModel: viewModel)
+                SmallTaskCardView(viewModel: viewModel)
               }
             }
             .frame(height: 175)
@@ -60,7 +60,7 @@ struct HomeView: View {
               .foregroundColor(.gray)
           } else {
             ForEach(viewModel.threeTasksToday, id: \.id) { task in
-              LargeTaskCard(viewModel: LargeTaskCardViewModel(task: task))
+              LargeTaskCardView(viewModel: LargeTaskCardViewModel(task: task))
             }
           }
         }

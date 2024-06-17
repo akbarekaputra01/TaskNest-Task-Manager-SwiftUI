@@ -5,14 +5,13 @@
 //  Created by Akbar Eka Putra on 15/06/24.
 //
 
-import Firebase
 import SwiftUI
 
-struct SigupView: View {
+struct SignUpView: View {
   // to close this screen
   @Environment(\.presentationMode) var presentationMode
 
-  @StateObject var viewModel = SignupViewModel()
+  @StateObject var viewModel = SignUpViewModel()
 
   @FocusState private var focusedTextField: FormTextField?
   enum FormTextField {
@@ -31,7 +30,7 @@ struct SigupView: View {
 
               Spacer()
 
-              if let image = viewModel.signupImage {
+              if let image = viewModel.signUpImage {
                 Image(uiImage: image)
                   .resizable()
                   .scaledToFill()
@@ -61,7 +60,7 @@ struct SigupView: View {
                   }
                 }
                 .sheet(isPresented: $viewModel.showingImagePicker) {
-                  ImagePicker(image: $viewModel.signupImage)
+                  ImagePicker(image: $viewModel.signUpImage)
                 }
               }
             }
@@ -128,7 +127,7 @@ struct SigupView: View {
             }
 
             Button(action: {
-              viewModel.signup()
+              viewModel.signUp()
             }) {
               ZStack {
                 if viewModel.isLoading {
@@ -228,10 +227,10 @@ struct SigupView: View {
         }
         // To unable scroll the scrollview
         // Note: scrollView used because after enter between TextField and SecureField, screen is like bounce
-        .environment(\.isScrollEnabled, false)
+        //        .environment(\.isScrollEnabled, false)
 
         // To limiting height the scrollView is just one screen
-        .frame(height: geometry.size.height)
+        //        .frame(height: geometry.size.height)
       }
     }
     .alert(item: $viewModel.alertItem) { alertItem in
@@ -244,5 +243,5 @@ struct SigupView: View {
 }
 
 #Preview{
-  SigupView()
+  SignUpView()
 }
