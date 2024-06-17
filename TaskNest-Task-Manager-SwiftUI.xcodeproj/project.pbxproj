@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,7 +16,6 @@
 		65161D842C1B14C0007D1DAB /* LargeTaskCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65161D832C1B14C0007D1DAB /* LargeTaskCardViewModel.swift */; };
 		65161D862C1B2495007D1DAB /* SetTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65161D852C1B2495007D1DAB /* SetTimeViewModel.swift */; };
 		651E44172C1F52A2002AA397 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 651E44162C1F52A2002AA397 /* info.plist */; };
-		653317EE2C15CA3100740298 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653317ED2C15CA3100740298 /* HomeView.swift */; };
 		653317F02C15E0E000740298 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653317EF2C15E0E000740298 /* WelcomeView.swift */; };
 		6548FE742C16999A009E36E4 /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548FE732C16999A009E36E4 /* Image+Ext.swift */; };
 		6548FE792C169C91009E36E4 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6548FE782C169C91009E36E4 /* View+Ext.swift */; };
@@ -51,16 +50,31 @@
 		65E109FA2C1AB5E000270B82 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E109F92C1AB5E000270B82 /* AccountView.swift */; };
 		65F1BF942C15FD1700A405EB /* TaskNestTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF932C15FD1700A405EB /* TaskNestTabView.swift */; };
 		65F1BF9A2C15FFDC00A405EB /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF992C15FFDC00A405EB /* CalendarView.swift */; };
-		65F1BF9D2C16004C00A405EB /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF9C2C16004C00A405EB /* CreateTaskView.swift */; };
 		65F6B7EC2C1D8535009A8CE0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F6B7EB2C1D8535009A8CE0 /* SignUpViewModel.swift */; };
 		65F6B7EF2C1D9C9A009A8CE0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F6B7EE2C1D9C9A009A8CE0 /* Alert.swift */; };
 		65F6B7F12C1DA641009A8CE0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F6B7F02C1DA641009A8CE0 /* User.swift */; };
+		65F727F22C202ED700219B53 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F727F12C202ED700219B53 /* HomeView.swift */; };
+		65F727F42C202F3E00219B53 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F727F32C202F3E00219B53 /* CreateTaskView.swift */; };
+		65F727F62C202F9E00219B53 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F727F52C202F9D00219B53 /* TasksView.swift */; };
 		65F984172C1719790008524A /* LargeTaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F984162C1719790008524A /* LargeTaskCardView.swift */; };
 		65F9841A2C173B200008524A /* TaskNest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F984192C173B200008524A /* TaskNest.swift */; };
-		65F9841E2C174EEF0008524A /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F9841D2C174EEF0008524A /* TasksView.swift */; };
 		65FE10422C1DDE09006091F2 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE10412C1DDE09006091F2 /* String+Ext.swift */; };
 		65FE10452C1DFBD9006091F2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE10442C1DFBD9006091F2 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		6518BCF32C2035B0006999B5 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = file.rcproject;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# rctool\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		6510D6372C1AB9A4000D194D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -72,7 +86,6 @@
 		65161D832C1B14C0007D1DAB /* LargeTaskCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTaskCardViewModel.swift; sourceTree = "<group>"; };
 		65161D852C1B2495007D1DAB /* SetTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeViewModel.swift; sourceTree = "<group>"; };
 		651E44162C1F52A2002AA397 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		653317ED2C15CA3100740298 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		653317EF2C15E0E000740298 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		6548FE732C16999A009E36E4 /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		6548FE782C169C91009E36E4 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
@@ -96,13 +109,14 @@
 		65E109F92C1AB5E000270B82 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		65F1BF932C15FD1700A405EB /* TaskNestTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNestTabView.swift; sourceTree = "<group>"; };
 		65F1BF992C15FFDC00A405EB /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		65F1BF9C2C16004C00A405EB /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		65F6B7EB2C1D8535009A8CE0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		65F6B7EE2C1D9C9A009A8CE0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		65F6B7F02C1DA641009A8CE0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		65F727F12C202ED700219B53 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		65F727F32C202F3E00219B53 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
+		65F727F52C202F9D00219B53 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		65F984162C1719790008524A /* LargeTaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTaskCardView.swift; sourceTree = "<group>"; };
 		65F984192C173B200008524A /* TaskNest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNest.swift; sourceTree = "<group>"; };
-		65F9841D2C174EEF0008524A /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		65FE10412C1DDE09006091F2 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		65FE10442C1DFBD9006091F2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,7 +232,7 @@
 		657064F32C2000C700F7986F /* TasksView */ = {
 			isa = PBXGroup;
 			children = (
-				65F9841D2C174EEF0008524A /* TasksView.swift */,
+				65F727F52C202F9D00219B53 /* TasksView.swift */,
 			);
 			path = TasksView;
 			sourceTree = "<group>";
@@ -226,7 +240,7 @@
 		657064F42C2000EA00F7986F /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				653317ED2C15CA3100740298 /* HomeView.swift */,
+				65F727F12C202ED700219B53 /* HomeView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -234,7 +248,7 @@
 		657064F52C20010900F7986F /* CreateTaskView */ = {
 			isa = PBXGroup;
 			children = (
-				65F1BF9C2C16004C00A405EB /* CreateTaskView.swift */,
+				65F727F32C202F3E00219B53 /* CreateTaskView.swift */,
 			);
 			path = CreateTaskView;
 			sourceTree = "<group>";
@@ -455,6 +469,7 @@
 				657C152D2C15816900BA2A09 /* Resources */,
 			);
 			buildRules = (
+				6518BCF32C2035B0006999B5 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -494,7 +509,7 @@
 				};
 			};
 			buildConfigurationList = 657C152A2C15816900BA2A09 /* Build configuration list for PBXProject "TaskNest-Task-Manager-SwiftUI" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -541,20 +556,19 @@
 				65FE10452C1DFBD9006091F2 /* ImagePicker.swift in Sources */,
 				65F6B7F12C1DA641009A8CE0 /* User.swift in Sources */,
 				6548FE742C16999A009E36E4 /* Image+Ext.swift in Sources */,
-				65F9841E2C174EEF0008524A /* TasksView.swift in Sources */,
 				65F6B7EC2C1D8535009A8CE0 /* SignUpViewModel.swift in Sources */,
 				6510D6402C1ADD7B000D194D /* CalendarViewModel.swift in Sources */,
+				65F727F22C202ED700219B53 /* HomeView.swift in Sources */,
 				65B1E6982C1874F700DDC69C /* SetTimeView.swift in Sources */,
 				65F9841A2C173B200008524A /* TaskNest.swift in Sources */,
 				65E109FA2C1AB5E000270B82 /* AccountView.swift in Sources */,
 				6510D6442C1AE8F6000D194D /* SmallTaskCardViewModel.swift in Sources */,
-				653317EE2C15CA3100740298 /* HomeView.swift in Sources */,
 				6510D63E2C1AD9A2000D194D /* CreateTasksViewModel.swift in Sources */,
 				65A678B92C1AF455006562A0 /* SmallTaskCardView.swift in Sources */,
 				65F984172C1719790008524A /* LargeTaskCardView.swift in Sources */,
 				657064FC2C2008CD00F7986F /* AppDelegate.swift in Sources */,
-				65F1BF9D2C16004C00A405EB /* CreateTaskView.swift in Sources */,
 				65F1BF9A2C15FFDC00A405EB /* CalendarView.swift in Sources */,
+				65F727F62C202F9E00219B53 /* TasksView.swift in Sources */,
 				657C15352C15816900BA2A09 /* ContentView.swift in Sources */,
 				65161D842C1B14C0007D1DAB /* LargeTaskCardViewModel.swift in Sources */,
 				65FE10422C1DDE09006091F2 /* String+Ext.swift in Sources */,
@@ -568,6 +582,7 @@
 				65B1E69C2C18BD0800DDC69C /* TodaysTasksView.swift in Sources */,
 				6591D9F62C1D4DA0007C098B /* SignUpView.swift in Sources */,
 				657C15422C158CC200BA2A09 /* Color+Ext.swift in Sources */,
+				65F727F42C202F3E00219B53 /* CreateTaskView.swift in Sources */,
 				65F1BF942C15FD1700A405EB /* TaskNestTabView.swift in Sources */,
 				657064FE2C200B5B00F7986F /* ApplicationUtility.swift in Sources */,
 			);
@@ -628,7 +643,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -683,7 +700,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
