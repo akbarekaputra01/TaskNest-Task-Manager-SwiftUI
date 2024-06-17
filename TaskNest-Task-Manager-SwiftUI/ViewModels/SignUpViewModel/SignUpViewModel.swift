@@ -9,6 +9,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestoreSwift
 import FirebaseStorage
+import GoogleSignIn
 import SwiftUI
 
 final class SignUpViewModel: ObservableObject {
@@ -24,6 +25,8 @@ final class SignUpViewModel: ObservableObject {
   @Published var showingImagePicker = false
 
   @Published var isLoading = false
+
+  @Published var isSignInButtonEnabled = true
 
   private var db = Firestore.firestore()
 
@@ -148,11 +151,70 @@ final class SignUpViewModel: ObservableObject {
     }
   }
 
-  func signOut() {
-    do {
-      try Auth.auth().signOut()
-    } catch {
-      print("Error signing out: \(error.localizedDescription)")
+  func signInWithGoogle(
+    withPresenting: UIViewController,
+    completion: @escaping (Error?) -> Void
+  ) {
+    guard let clientID = FirebaseApp.app()?.options.clientID else {
+      print("Failed to get clientID")
+      completion(
+        NSError(
+          domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to get clientID"])
+      )
+      return
+    }
+
+    print("ClientID: \(clientID)")
+
+    // Membuat objek konfigurasi Google Sign In.
+    let config = GIDConfiguration(clientID: clientID)
+    GIDSignIn.sharedInstance.configuration = config
+
+    print("Successfully configured")
+
+    // Memulai alur sign in!
+    GIDSignIn.sharedInstance.signIn(withPresenting: withPresenting) { result, error in
+      if let error = error {
+        print("SignIn error: \(error.localizedDescription)")
+        completion(error)
+        return
+      }
+
+      print("Login successfully")
+
+      guard let user = result?.user,
+        let idToken = user.idToken?.tokenString
+      else {
+        print("Failed to get user or idToken.")
+        completion(
+          NSError(
+            domain: "", code: -1,
+            userInfo: [NSLocalizedDescriptionKey: "Failed to get user or idToken."]))
+        return
+      }
+
+      print("idToken: \(idToken)")
+
+      let credential = GoogleAuthProvider.credential(
+        withIDToken: idToken,
+        accessToken: user.accessToken.tokenString)
+
+      print("Credential: \(credential)")
+
+      // Opsional, Anda dapat menambahkan kode untuk sign in dengan Firebase menggunakan credential
+      // Auth.auth().signIn(with: credential) { authResult, error in
+      //     if let error = error {
+      //         print("Firebase signIn error: \(error.localizedDescription)")
+      //         completion(error)
+      //         return
+      //     }
+      //     print("Firebase signIn berhasil")
+      //     completion(nil)
+      // }
+
+      // Jika sign-in Google berhasil
+      completion(nil)
     }
   }
+
 }

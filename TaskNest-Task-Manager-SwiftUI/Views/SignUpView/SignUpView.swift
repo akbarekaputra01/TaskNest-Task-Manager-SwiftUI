@@ -188,16 +188,39 @@ struct SignUpView: View {
                   )
               }
               Button {
-                // Handle Google sign in logic here
+                print("Google Sign In Button is clicked")
+
+                viewModel.isSignInButtonEnabled = false
+
+                viewModel.signInWithGoogle(withPresenting: Application_utility.rootViewController) {
+                  error in
+                  viewModel.isSignInButtonEnabled = true
+                  if let error = error {
+                    print("SignIn completion error: \(error.localizedDescription)")
+                  } else {
+                    print("SignIn berhasil")
+                  }
+                }
               } label: {
-                Image("googleIcon")
-                  .frame(width: 5)
-                  .padding(20)
-                  .overlay(
-                    Circle()
-                      .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                  )
+                ZStack {
+                  if viewModel.isSignInButtonEnabled {
+                    Image("googleIcon")
+                      .frame(width: 5)
+
+                  } else {
+                    ProgressView()
+                      .frame(width: 5)
+                      .progressViewStyle(CircularProgressViewStyle(tint: .accent))
+                    // .scaleEffect(1.25)
+                  }
+                }
+                .padding(20)
+                .overlay(
+                  Circle()
+                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                )
               }
+              .disabled(!viewModel.isSignInButtonEnabled)
               .padding(.horizontal)
               Button {
                 // Handle Facebook sign in logic here
@@ -227,10 +250,10 @@ struct SignUpView: View {
         }
         // To unable scroll the scrollview
         // Note: scrollView used because after enter between TextField and SecureField, screen is like bounce
-        //        .environment(\.isScrollEnabled, false)
+        .environment(\.isScrollEnabled, false)
 
         // To limiting height the scrollView is just one screen
-        //        .frame(height: geometry.size.height)
+        .frame(height: geometry.size.height)
       }
     }
     .alert(item: $viewModel.alertItem) { alertItem in
