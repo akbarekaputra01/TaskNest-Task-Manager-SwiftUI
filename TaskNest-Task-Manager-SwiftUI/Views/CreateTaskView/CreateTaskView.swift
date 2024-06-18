@@ -145,6 +145,7 @@ struct CreateTaskView: View {
         }
         .padding(.top)
 
+        Spacer()
       }
 
       .padding()

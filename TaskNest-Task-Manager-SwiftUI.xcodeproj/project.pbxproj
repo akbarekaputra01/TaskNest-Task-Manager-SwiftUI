@@ -297,9 +297,9 @@
 		657064FA2C20044500F7986F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				65FE10442C1DFBD9006091F2 /* ImagePicker.swift */,
 				657064FB2C2008CD00F7986F /* AppDelegate.swift */,
 				657064FD2C200B5B00F7986F /* ApplicationUtility.swift */,
+				65FE10442C1DFBD9006091F2 /* ImagePicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
