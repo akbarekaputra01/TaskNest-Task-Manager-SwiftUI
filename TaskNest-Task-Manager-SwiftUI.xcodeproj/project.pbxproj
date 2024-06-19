@@ -87,6 +87,7 @@
 		65161D852C1B2495007D1DAB /* SetTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeViewModel.swift; sourceTree = "<group>"; };
 		651E44162C1F52A2002AA397 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		653317EF2C15E0E000740298 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		653C8FEC2C2286F70039550F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6548FE732C16999A009E36E4 /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		6548FE782C169C91009E36E4 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		6568F6D72C1BC69A00855A26 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
@@ -307,6 +308,7 @@
 		657C15262C15816900BA2A09 = {
 			isa = PBXGroup;
 			children = (
+				653C8FEC2C2286F70039550F /* README.md */,
 				657C15312C15816900BA2A09 /* TaskNest-Task-Manager-SwiftUI */,
 				657C15302C15816900BA2A09 /* Products */,
 			);
