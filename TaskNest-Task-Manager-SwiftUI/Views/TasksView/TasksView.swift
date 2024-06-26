@@ -8,53 +8,52 @@
 import SwiftUI
 
 struct TasksView: View {
-  @StateObject var viewModel = TasksViewModel()
+    @StateObject var viewModel = TasksViewModel()
 
-  var body: some View {
-    NavigationView {
-      VStack {
-        if viewModel.allTasks.isEmpty {
-          Spacer()
-          Text("No tasks found")
-            .foregroundColor(.gray)
-          Spacer()
-        } else {
-          ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 22) {
-              ForEach(viewModel.allTasks, id: \.id) { task in
-                LargeTaskCardView(viewModel: LargeTaskCardViewModel(task: task))
-              }
+    var body: some View {
+        NavigationView {
+            VStack {
+                if viewModel.allTasks.isEmpty {
+                    Spacer()
+                    Text("No tasks found")
+                        .foregroundColor(.gray)
+                    Spacer()
+                } else {
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 22) {
+                            ForEach(viewModel.allTasks, id: \.id) { task in
+                                LargeTaskCardView(viewModel: LargeTaskCardViewModel(task: task))
+                            }
+                        }
+                        .padding()
+                    }
+                }
             }
-            .padding()
-          }
-        }
-      }
 
-      .navigationBarTitle("Tasks", displayMode: .inline)
-      .navigationBarTitle("Home", displayMode: .inline)
-      .navigationBarItems(
-        trailing:
-          Button(
-            action: {
-              viewModel.isShowingCreateTaskScreen.toggle()
-            },
-            label: {
-              Image(systemName: "plus.app")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 25)
-                .foregroundColor(.isDark)
-            }))
+            .navigationBarTitle("Tasks", displayMode: .inline)
+            .navigationBarTitle("Home", displayMode: .inline)
+            .navigationBarItems(
+                trailing:
+                Button(
+                    action: {
+                        viewModel.isShowingCreateTaskScreen.toggle()
+                    },
+                    label: {
+                        Image(systemName: "plus.app")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25)
+                            .foregroundColor(.isDark)
+                    }))
+        }
+        .fullScreenCover(
+            isPresented: $viewModel.isShowingCreateTaskScreen,
+            content: {
+                CreateTaskView()
+            })
     }
-    .fullScreenCover(
-      isPresented: $viewModel.isShowingCreateTaskScreen,
-      content: {
-        CreateTaskView()
-      }
-    )
-  }
 }
 
-#Preview{
-  TasksView()
+#Preview {
+    TasksView()
 }

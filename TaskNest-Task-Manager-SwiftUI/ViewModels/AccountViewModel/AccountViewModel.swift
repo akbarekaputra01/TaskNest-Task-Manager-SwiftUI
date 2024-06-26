@@ -8,8 +8,8 @@
 import Foundation
 
 final class AccountViewModel: ObservableObject {
-  @Published var firstName = ""
-  @Published var lastName = ""
-  @Published var email = ""
-  @Published var birthdate = Date()
+    @Published var firstName = ""
+    @Published var lastName = ""
+    @Published var email = ""
+    @Published var birthdate = Date()
 }

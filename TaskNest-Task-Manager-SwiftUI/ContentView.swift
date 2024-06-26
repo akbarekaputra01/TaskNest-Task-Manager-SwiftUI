@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var isWelcome: Bool = true
+    @State private var isWelcome: Bool = true
 
-  var body: some View {
-    ZStack {
-      if isWelcome {
-        WelcomeView(isWelcome: $isWelcome)
-      } else {
-        TaskNestTabView()
-      }
+    var body: some View {
+        ZStack {
+            if isWelcome {
+                WelcomeView(isWelcome: $isWelcome)
+            } else {
+                TaskNestTabView()
+            }
+        }
     }
-  }
 }
 
-#Preview{
-  ContentView()
+#Preview {
+    ContentView()
 }

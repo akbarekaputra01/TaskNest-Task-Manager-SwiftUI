@@ -8,13 +8,13 @@
 import SwiftUI
 
 final class TasksViewModel: ObservableObject {
-  @Published var isShowingCreateTaskScreen: Bool
-  @Published var allTasks: [TaskNest]
+    @Published var isShowingCreateTaskScreen: Bool
+    @Published var allTasks: [TaskNest]
 
-  init() {
-    self.allTasks = []
+    init() {
+        self.allTasks = []
 
-    self.isShowingCreateTaskScreen = false
-    self.allTasks = MockData.tasks
-  }
+        self.isShowingCreateTaskScreen = false
+        self.allTasks = MockData.tasks
+    }
 }

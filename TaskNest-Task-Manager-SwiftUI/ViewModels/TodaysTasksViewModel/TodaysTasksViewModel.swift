@@ -8,13 +8,13 @@
 import SwiftUI
 
 final class TodaysTasksViewModel: ObservableObject {
-  @Published var dateNow: String
-  @Published var todayTasks: [TaskNest]
+    @Published var dateNow: String
+    @Published var todayTasks: [TaskNest]
 
-  init() {
-    self.todayTasks = []
+    init() {
+        self.todayTasks = []
 
-    self.dateNow = DateUtils.formattedDDMMYYYY(selectedDate: Date())
-    self.todayTasks = MockData.tasks.filter { $0.taskDate == dateNow }
-  }
+        self.dateNow = DateUtils.formattedDDMMYYYY(selectedDate: Date())
+        self.todayTasks = MockData.tasks.filter { $0.taskDate == dateNow }
+    }
 }

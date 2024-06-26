@@ -8,51 +8,51 @@
 import SwiftUI
 
 struct WelcomeView: View {
-  @Binding var isWelcome: Bool
+    @Binding var isWelcome: Bool
 
-  var body: some View {
-    VStack {
-      Spacer()
+    var body: some View {
+        VStack {
+            Spacer()
 
-      Image("PeopleWriting")
-        .resizable()
-        .scaledToFit()
-        .frame(width: 200)
+            Image("PeopleWriting")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200)
 
-      Spacer()
+            Spacer()
 
-      VStack {
-        Text("Effortlessly Organise Your Day")
-          .fontWeight(.bold)
-          .font(.system(size: 32))
-          .multilineTextAlignment(.center)
-          .padding(.bottom)
+            VStack {
+                Text("Effortlessly Organise Your Day")
+                    .fontWeight(.bold)
+                    .font(.system(size: 32))
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom)
 
-        Text("Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.")
-          .font(.system(size: 16))
-          .multilineTextAlignment(.center)
-          .foregroundColor(Color.isDark.opacity(0.5))
-      }
-      .padding(.horizontal, 28)
+                Text("Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate.")
+                    .font(.system(size: 16))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color.isDark.opacity(0.5))
+            }
+            .padding(.horizontal, 28)
 
-      Spacer()
+            Spacer()
 
-      Button(action: {
-        self.isWelcome = false
-      }) {
-        Text("Next")
-          .font(.headline)
-          .foregroundColor(.white)
-          .padding()
-          .frame(maxWidth: .infinity)
-          .background(Color.colorBrandPrimary)
-          .cornerRadius(8)
-      }
+            Button(action: {
+                self.isWelcome = false
+            }) {
+                Text("Next")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.colorBrandPrimary)
+                    .cornerRadius(8)
+            }
+        }
+        .padding()
     }
-    .padding()
-  }
 }
 
-#Preview{
-  WelcomeView(isWelcome: .constant(true))
+#Preview {
+    WelcomeView(isWelcome: .constant(true))
 }

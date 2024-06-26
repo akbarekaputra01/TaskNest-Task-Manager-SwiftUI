@@ -8,45 +8,44 @@
 import SwiftUI
 
 struct NotifBadgeModifier: ViewModifier {
-  var count: Int
+    var count: Int
 
-  func body(content: Content) -> some View {
-    ZStack(alignment: .topTrailing) {
-      content
-      if count > 0 {
-        Text("\(count)")
-          .foregroundColor(.isDark)
-          .font(.caption)
-          .fontWeight(.bold)
-          .padding(4)
-          .background(.accent)
-          .clipShape(Circle())
-          .offset(x: 6, y: -6)
-      }
+    func body(content: Content) -> some View {
+        ZStack(alignment: .topTrailing) {
+            content
+            if self.count > 0 {
+                Text("\(self.count)")
+                    .foregroundColor(.isDark)
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .padding(4)
+                    .background(.accent)
+                    .clipShape(Circle())
+                    .offset(x: 6, y: -6)
+            }
+        }
     }
-  }
 }
 
 extension View {
-  func notifBadgeExt(count: Int) -> some View {
-    self.modifier(NotifBadgeModifier(count: count))
-  }
-
-  func getRootViewController() -> UIViewController {
-    guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
-      return .init()
+    func notifBadgeExt(count: Int) -> some View {
+        self.modifier(NotifBadgeModifier(count: count))
     }
 
-    guard let root = screen.windows.first?.rootViewController else {
-      return .init()
+    func getRootViewController() -> UIViewController {
+        guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return .init()
+        }
+
+        guard let root = screen.windows.first?.rootViewController else {
+            return .init()
+        }
+
+        return root
     }
-
-    return root
-  }
-
 }
 
-#Preview{
-  Image(systemName: "bell")
-    .notifBadgeExt(count: 8)
+#Preview {
+    Image(systemName: "bell")
+        .notifBadgeExt(count: 8)
 }

@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct TaskNestTabView: View {
-  var body: some View {
-    TabView {
-      HomeView()
-        .tabItem { Label("Home", systemImage: "house") }
-      TasksView()
-        .tabItem { Label("Tasks", systemImage: "list.clipboard") }
-      CalendarView()
-        .tabItem { Label("Calendar", systemImage: "calendar") }
-      AccountView()
-        .tabItem { Label("Account", systemImage: "person") }
+    var body: some View {
+        TabView {
+            HomeView()
+                .tabItem { Label("Home", systemImage: "house") }
+            TasksView()
+                .tabItem { Label("Tasks", systemImage: "list.clipboard") }
+            CalendarView()
+                .tabItem { Label("Calendar", systemImage: "calendar") }
+            AccountView()
+                .tabItem { Label("Account", systemImage: "person") }
+        }
     }
-  }
 }
 
-#Preview{
-  TaskNestTabView()
+#Preview {
+    TaskNestTabView()
 }

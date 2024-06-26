@@ -8,20 +8,20 @@
 import SwiftUI
 
 extension Image {
-  func outlineButtonExt() -> some View {
-    self
-      .padding(8)
-      .background(Color.clear)
-      .foregroundColor(.isDark)
-      .clipShape(Circle())
-      .overlay(
-        RoundedRectangle(cornerRadius: 10)
-          .stroke(.isDark.opacity(0.5), lineWidth: 0.5)
-      )
-  }
+    func outlineButtonExt() -> some View {
+        self
+            .padding(8)
+            .background(Color.clear)
+            .foregroundColor(.isDark)
+            .clipShape(Circle())
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(.isDark.opacity(0.5), lineWidth: 0.5)
+            )
+    }
 }
 
-#Preview{
-  Image(systemName: "bell")
-    .outlineButtonExt()
+#Preview {
+    Image(systemName: "bell")
+        .outlineButtonExt()
 }

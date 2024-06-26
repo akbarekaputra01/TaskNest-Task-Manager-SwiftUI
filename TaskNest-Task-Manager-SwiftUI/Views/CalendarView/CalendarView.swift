@@ -8,48 +8,48 @@
 import SwiftUI
 
 struct CalendarView: View {
-  @StateObject var viewModel = CalendarViewModel()
+    @StateObject var viewModel = CalendarViewModel()
 
-  var body: some View {
-    VStack(alignment: .leading) {
-      DatePicker(
-        "",
-        selection: $viewModel.selectedDate,
-        displayedComponents: .date
-      )
-      .datePickerStyle(.graphical)
-      .padding(.horizontal)
+    var body: some View {
+        VStack(alignment: .leading) {
+            DatePicker(
+                "",
+                selection: $viewModel.selectedDate,
+                displayedComponents: .date
+            )
+            .datePickerStyle(.graphical)
+            .padding(.horizontal)
 
-      Text("Tasks on \(viewModel.formattedSelectedDate)")
-        .frame(width: .infinity, alignment: .leading)
-        .font(.title3)
-        .fontWeight(.semibold)
-        .padding(.horizontal)
-        .padding(.top)
+            Text("Tasks on \(viewModel.formattedSelectedDate)")
+                .frame(width: .infinity, alignment: .leading)
+                .font(.title3)
+                .fontWeight(.semibold)
+                .padding(.horizontal)
+                .padding(.top)
 
-      if viewModel.tasksOnSelectedDate.isEmpty {
-        Text("No tasks found on \(viewModel.formattedSelectedDate)")
-          .foregroundColor(.gray)
-          .padding(.leading)
-      } else {
-        ScrollView(.vertical, showsIndicators: false) {
-          VStack(alignment: .leading, spacing: 22) {
-            ForEach(
-              viewModel.tasksOnSelectedDate, id: \.id
-            ) {
-              task in
-              LargeTaskCardView(viewModel: LargeTaskCardViewModel(task: task))
+            if viewModel.tasksOnSelectedDate.isEmpty {
+                Text("No tasks found on \(viewModel.formattedSelectedDate)")
+                    .foregroundColor(.gray)
+                    .padding(.leading)
+            } else {
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 22) {
+                        ForEach(
+                            viewModel.tasksOnSelectedDate, id: \.id
+                        ) {
+                            task in
+                            LargeTaskCardView(viewModel: LargeTaskCardViewModel(task: task))
+                        }
+                    }
+                    .padding()
+                }
             }
-          }
-          .padding()
-        }
-      }
 
-      Spacer()
+            Spacer()
+        }
     }
-  }
 }
 
-#Preview{
-  CalendarView()
+#Preview {
+    CalendarView()
 }

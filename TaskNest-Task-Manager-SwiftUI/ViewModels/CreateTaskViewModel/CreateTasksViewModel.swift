@@ -8,13 +8,13 @@
 import SwiftUI
 
 final class CreateTasksViewModel: ObservableObject {
-  @Published var taskTitle: String
-  @Published var taskDescription: String
-  @Published var selectedPriority: String
+    @Published var taskTitle: String
+    @Published var taskDescription: String
+    @Published var selectedPriority: String
 
-  init() {
-    self.taskTitle = ""
-    self.taskDescription = ""
-    self.selectedPriority = "Medium"
-  }
+    init() {
+        self.taskTitle = ""
+        self.taskDescription = ""
+        self.selectedPriority = "Medium"
+    }
 }
