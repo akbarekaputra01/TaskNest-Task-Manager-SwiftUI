@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+struct GuestUser: Codable, Identifiable {
+    var id: String = ""
+    var firstName: String = ""
+    var lastName: String = ""
+    var imageUrl: String = ""
+    var createdAt: Date = .init()
+}
+
 struct User: Codable, Identifiable {
     var id: String = ""
     var name: String = ""

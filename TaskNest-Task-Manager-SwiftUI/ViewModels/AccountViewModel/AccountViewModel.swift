@@ -5,11 +5,29 @@
 //  Created by Akbar Eka Putra on 14/06/24.
 //
 
-import Foundation
+import SwiftUI
 
 final class AccountViewModel: ObservableObject {
-    @Published var firstName = ""
-    @Published var lastName = ""
-    @Published var email = ""
-    @Published var birthdate = Date()
+    @AppStorage("user") private var userData: Data?
+    @Published var user = GuestUser()
+    @Published var alertItem: AlertItem?
+
+    func saveChanges() {
+        do {
+            let data = try JSONEncoder().encode(user)
+            userData = data
+        } catch {
+            alertItem = AlertContext.invalidUserData
+        }
+    }
+
+    func retrieveUser() {
+        guard let userData else { return }
+
+        do {
+            user = try JSONDecoder().decode(GuestUser.self, from: userData)
+        } catch {
+            alertItem = AlertContext.invalidUserData
+        }
+    }
 }

@@ -49,4 +49,9 @@ enum AlertContext {
         title: Text("Registration Successful"),
         message: Text("Your profile information was successfully saved."),
         dismissButton: .default(Text("OK")))
+
+    static let userSaveSuccess = AlertItem(
+        title: Text("Guest Profile Saved"),
+        message: Text("Your guest profile information was successfully saved."),
+        dismissButton: .default(Text("OK")))
 }

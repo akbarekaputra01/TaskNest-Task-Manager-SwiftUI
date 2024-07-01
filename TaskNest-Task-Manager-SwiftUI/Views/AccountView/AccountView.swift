@@ -32,58 +32,58 @@ struct AccountView: View {
 
                 Form {
                     Section(header: Text("Personal Info")) {
-                        VStack(alignment: .leading, spacing: 22) {
-                            TextField("First Name", text: $viewModel.firstName)
-                                .focused($focusedTextField, equals: .firstName)
-                                .onSubmit { focusedTextField = .lastName }
-                                .submitLabel(.next)
+                        TextField("First Name", text: $viewModel.user.firstName)
+                            .focused($focusedTextField, equals: .firstName)
+                            .onSubmit { focusedTextField = .lastName }
+                            .submitLabel(.next)
 
-                            TextField("Last Name", text: $viewModel.lastName)
-                                .focused($focusedTextField, equals: .lastName)
-                                .onSubmit { focusedTextField = .email }
-                                .submitLabel(.next)
+                        TextField("Last Name", text: $viewModel.user.lastName)
+                            .focused($focusedTextField, equals: .lastName)
+                            .onSubmit { focusedTextField = .email }
+                            .submitLabel(.next)
 
-                            TextField("Email", text: $viewModel.email)
-                                .focused($focusedTextField, equals: .email)
-                                .onSubmit { focusedTextField = nil }
-                                .submitLabel(.continue)
-                                .keyboardType(.emailAddress)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
+//                            TextField("Email", text: $viewModel.email)
+//                                .focused($focusedTextField, equals: .email)
+//                                .onSubmit { focusedTextField = nil }
+//                                .submitLabel(.continue)
+//                                .keyboardType(.emailAddress)
+//                                .autocapitalization(.none)
+//                                .disableAutocorrection(true)
 
-                            DatePicker(
-                                "Birthday",
-                                selection: $viewModel.birthdate,
-                                in: Date().oneHundredTenYearsAgo ... Date().eighteenYearsAgo,
-                                displayedComponents: .date
-                            )
+                        Button {
+                            viewModel.saveChanges()
+                        } label: {
+                            Text("Save changes")
+                                .fontWeight(.bold)
+                        }
 
-                            Button {
-                                // action
-                            } label: {
-                                Text("Save Changes")
-                            }
+                        NavigationLink(destination: SignUpView().navigationBarBackButtonHidden()) {
+                            Text("Login not as a guest")
+                                .fontWeight(.bold)
+                                .foregroundColor(.accentColor)
                         }
                     }
                 }
                 .scrollContentBackground(.hidden)
-                .frame(height: 500)
                 .scrollDisabled(true)
 
                 Spacer()
             }
-            .navigationBarTitle("Profile", displayMode: .inline)
-            .navigationBarItems(
-                trailing:
-                Button(action: {
-                    print("edit button clicked")
-                }) {
-                    Image(systemName: "square.and.pencil")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25)
-                        .foregroundColor(.primary)
+            .navigationBarTitle("Guest Profile", displayMode: .inline)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Button("Dismiss") { focusedTextField = nil }
                 }
+            }
+        }
+        .onAppear {
+            viewModel.retrieveUser()
+        }
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(
+                title: alertItem.title,
+                message: alertItem.message,
+                dismissButton: alertItem.dismissButton
             )
         }
     }
