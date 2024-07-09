@@ -27,8 +27,8 @@ final class SignUpViewModel: ObservableObject {
 
     var isValidRegisterForm: Bool {
         guard
-            !user.name.isEmpty && !user.username.isEmpty && !user.email.isEmpty && !user.password.isEmpty
-            && !confirmPassword.isEmpty
+            !user.name.isEmpty && !user.username.isEmpty && !user.email.isEmpty && user.password.count >= 6
+            && confirmPassword.count >= 6
         else {
             alertItem = AlertContext.invalidForm
             return false
@@ -89,17 +89,18 @@ final class SignUpViewModel: ObservableObject {
                     self.alertItem = AlertContext.uploadImgToStorageError
                     print("Error uploadImageToStorage: \(error.localizedDescription)")
                 } else {
-                    self.getImageUrl(imageRef, closure: closure)
+                    self.getImageUrl(imageRef)
                     print("Done uploadImageToStorage")
                 }
             }
         } else {
             print("No image found")
-            uploadUserDataToDB(closure: closure)
         }
+
+        uploadUserDataToDB(closure: closure)
     }
 
-    private func getImageUrl(_ imageRef: StorageReference, closure: @escaping () -> Void) {
+    private func getImageUrl(_ imageRef: StorageReference) {
         imageRef.downloadURL { [weak self] url, error in
             guard let self = self else { return }
 
@@ -107,14 +108,10 @@ final class SignUpViewModel: ObservableObject {
                 self.user.imageUrl = url.absoluteString
                 if !self.user.imageUrl.isEmpty {
                     print("Done getImageUrl: \(self.user.imageUrl)")
-                    self.uploadUserDataToDB(closure: closure)
                 }
             } else if let error = error {
                 self.isLoading = false
-                self.alertItem = AlertItem(
-                    title: Text("Error getImageUrl"),
-                    message: Text(error.localizedDescription),
-                    dismissButton: .default(Text("OK")))
+                self.alertItem = AlertContext.getImageUrlError
                 print("Error getImageUrl: \(error.localizedDescription)")
             }
         }
@@ -131,10 +128,7 @@ final class SignUpViewModel: ObservableObject {
             closure()
         } catch {
             isLoading = false
-            alertItem = AlertItem(
-                title: Text("Error uploadUserDataToDB"),
-                message: Text(error.localizedDescription),
-                dismissButton: .default(Text("OK")))
+            alertItem = AlertContext.uploadUserDataToDBError
             print("Error uploadUserDataToDB: \(error.localizedDescription)")
         }
     }

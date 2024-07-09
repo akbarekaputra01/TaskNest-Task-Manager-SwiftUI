@@ -74,6 +74,16 @@ enum AlertContext {
         message: Text("An error occurred while deleting user."),
         dismissButton: .default(Text("OK")))
 
+    static let getImageUrlError = AlertItem(
+        title: Text("Error getImageUrl"),
+        message: Text("An error occurred while getting image url."),
+        dismissButton: .default(Text("OK")))
+
+    static let uploadUserDataToDBError = AlertItem(
+        title: Text("Error uploadUserDataToDB"),
+        message: Text("An error occurred while uploading user data to database."),
+        dismissButton: .default(Text("OK")))
+
     static let userRegistSuccess = AlertItem(
         title: Text("Registration Successful"),
         message: Text("Your account has been created successfully. Please sign in to continue."),

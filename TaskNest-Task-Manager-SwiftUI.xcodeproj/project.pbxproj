@@ -80,6 +80,8 @@
 		65FDDB852C2C3CAA009045EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65FDDB842C2C3CAA009045EF /* GoogleService-Info.plist */; };
 		65FE10422C1DDE09006091F2 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE10412C1DDE09006091F2 /* String+Ext.swift */; };
 		65FE10452C1DFBD9006091F2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE10442C1DFBD9006091F2 /* ImagePicker.swift */; };
+		65FE379C2C3D72A60064CD24 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE379B2C3D72A60064CD24 /* UserError.swift */; };
+		65FE379F2C3D73C10064CD24 /* FormError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FE379E2C3D73C10064CD24 /* FormError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -143,6 +145,8 @@
 		65FDDB842C2C3CAA009045EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		65FE10412C1DDE09006091F2 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		65FE10442C1DFBD9006091F2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		65FE379B2C3D72A60064CD24 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		65FE379E2C3D73C10064CD24 /* FormError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +510,7 @@
 				65F1BF902C15FA3700A405EB /* Extenstions */,
 				65B1E6942C186FF400DDC69C /* Dates */,
 				65F6B7ED2C1D9C14009A8CE0 /* Alerts */,
+				65FE379D2C3D72BC0064CD24 /* Error */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -516,6 +521,15 @@
 				6510D63B2C1AD84A000D194D /* TasksViewModel.swift */,
 			);
 			path = TasksViewModel;
+			sourceTree = "<group>";
+		};
+		65FE379D2C3D72BC0064CD24 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				65FE379B2C3D72A60064CD24 /* UserError.swift */,
+				65FE379E2C3D73C10064CD24 /* FormError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -632,9 +646,11 @@
 				65161D862C1B2495007D1DAB /* SetTimeViewModel.swift in Sources */,
 				6548FE792C169C91009E36E4 /* View+Ext.swift in Sources */,
 				65FE10452C1DFBD9006091F2 /* ImagePicker.swift in Sources */,
+				65FE379F2C3D73C10064CD24 /* FormError.swift in Sources */,
 				65F6B7F12C1DA641009A8CE0 /* User.swift in Sources */,
 				6548FE742C16999A009E36E4 /* Image+Ext.swift in Sources */,
 				65F6B7EC2C1D8535009A8CE0 /* SignUpViewModel.swift in Sources */,
+				65FE379C2C3D72A60064CD24 /* UserError.swift in Sources */,
 				6510D6402C1ADD7B000D194D /* CalendarViewModel.swift in Sources */,
 				65F727F22C202ED700219B53 /* HomeView.swift in Sources */,
 				65B1E6982C1874F700DDC69C /* SetTimeView.swift in Sources */,

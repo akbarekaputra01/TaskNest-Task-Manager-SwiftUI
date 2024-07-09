@@ -33,17 +33,17 @@ extension String {
                     "0"..."9"
                 )
             }
-            Optionally {
+//            Optionally {
+            OneOrMore {
+                "."
                 OneOrMore {
-                    "."
-                    OneOrMore {
-                        CharacterClass(
-                            "A"..."Z",
-                            "a"..."z"
-                        )
-                    }
+                    CharacterClass(
+                        "A"..."Z",
+                        "a"..."z"
+                    )
                 }
             }
+//            }
         }
 
         return self.wholeMatch(of: emailRegex) != nil

@@ -14,16 +14,16 @@ final class AccountViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var isSignInViewShown: Bool = false
 
-    func updateUserData(user: User, closure: @escaping () -> Void) {
+    func updateUserData(user: User, closure: @escaping (Error?) -> Void) {
         guard !user.name.isEmpty && !user.username.isEmpty else {
-            alertItem = AlertContext.invalidForm
+            closure(FormError.invalidForm)
             return
         }
 
         do {
             let data = try JSONEncoder().encode(user)
             userData = data
-            closure()
+            closure(nil)
         } catch {
             alertItem = AlertContext.invalidUserData
         }
@@ -44,12 +44,33 @@ final class AccountViewModel: ObservableObject {
         do {
             try firebaseAuth.signOut()
 
-            user = User()
-            updateUserData(user: user) {
+//            // to reset the user
+//            user = User()
+//            updateUserData(user: user) { _ in // if no error occured
+//                self.alertItem = AlertContext.signOutSuccess
+//            }
+
+            deleteUser {
                 self.alertItem = AlertContext.signOutSuccess
             }
+
+//            user = User()
+//            userData = try JSONEncoder().encode(user)
+//            alertItem = AlertContext.signOutSuccess
         } catch let signOutError as NSError {
             print("Error signing out: \(signOutError.localizedDescription)")
+        }
+    }
+
+    func deleteUser(closure: @escaping () -> Void) {
+        user = User()
+
+        do {
+            let data = try JSONEncoder().encode(user)
+            userData = data
+            closure()
+        } catch {
+            alertItem = AlertContext.invalidUserData
         }
     }
 }

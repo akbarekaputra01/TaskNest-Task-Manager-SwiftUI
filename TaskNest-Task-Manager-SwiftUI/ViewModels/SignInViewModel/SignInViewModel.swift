@@ -34,7 +34,9 @@ final class SignInViewModel: ObservableObject {
                 
             if let authResult = authResult {
                 self.copyUserDataFromDBToLocal(uid: authResult.user.uid) {
-                    self.alertItem = AlertContext.signInSuccess
+                    AccountViewModel().updateUserData(user: self.user) { _ in
+                        self.alertItem = AlertContext.signInSuccess
+                    }
                 }
             } else {
                 self.alertItem = AlertContext.invalidUserData
@@ -120,9 +122,7 @@ final class SignInViewModel: ObservableObject {
                 // Avoid storing sensitive information like password in Firestore
                 self.user.password = data?["password"] as? String ?? ""
                 self.user.createdAt = data?["createdAt"] as? Date ?? Date()
-                AccountViewModel().updateUserData(user: self.user) {
-                    closure()
-                }
+                closure()
             } else {
                 self.alertItem = AlertContext.userDocDoesntExist
             }

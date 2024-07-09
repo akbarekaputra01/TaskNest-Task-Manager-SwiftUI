@@ -75,8 +75,12 @@ struct AccountView: View {
 
                         if viewModel.user.email.isEmpty {
                             Button {
-                                viewModel.updateUserData(user: viewModel.user) {
-                                    viewModel.alertItem = AlertContext.userSaveSuccess
+                                viewModel.updateUserData(user: viewModel.user) { error in
+                                    if error != nil {
+                                        viewModel.alertItem = AlertContext.invalidForm
+                                    } else {
+                                        viewModel.alertItem = AlertContext.userSaveSuccess
+                                    }
                                 }
                             } label: {
                                 Text("Save changes")
