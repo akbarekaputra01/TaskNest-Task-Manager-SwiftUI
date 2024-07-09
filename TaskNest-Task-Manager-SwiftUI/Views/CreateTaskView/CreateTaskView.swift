@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct CreateTaskView: View {
-    @StateObject var viewModel = CreateTasksViewModel()
-
-    // to close this screen
     @Environment(\.presentationMode) var presentationMode
+
+    @StateObject var viewModel = CreateTasksViewModel()
 
     @FocusState private var focusedTextField: FormTextField?
     enum FormTextField {
@@ -108,8 +107,7 @@ struct CreateTaskView: View {
                                     .stroke(
                                         viewModel.selectedPriority == "Medium" ? .accent : .gray,
                                         lineWidth: 1
-                                    )
-                            )
+                                    ))
                     }
                     .frame(width: 112)
 
@@ -128,8 +126,7 @@ struct CreateTaskView: View {
                                     .stroke(
                                         viewModel.selectedPriority == "Low" ? .accent : .gray,
                                         lineWidth: 1
-                                    )
-                            )
+                                    ))
                     }
                     .frame(width: 112)
                 }
@@ -165,8 +162,7 @@ struct CreateTaskView: View {
                         .frame(height: 20)
                         .foregroundColor(Color.primary)
                         .padding(.vertical)
-                }
-            )
+                })
         }
     }
 }

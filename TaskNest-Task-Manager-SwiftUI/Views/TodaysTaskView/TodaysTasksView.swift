@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TodaysTasksView: View {
-    // to close this screen
     @Environment(\.presentationMode) var presentationMode
 
     @StateObject var viewModel = TodaysTasksViewModel()

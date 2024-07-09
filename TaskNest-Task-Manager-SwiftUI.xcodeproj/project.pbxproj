@@ -31,9 +31,11 @@
 		659C50D82C1BD1D0000B390A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659C50D72C1BD1D0000B390A /* Date+Ext.swift */; };
 		65A678B92C1AF455006562A0 /* SmallTaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A678B82C1AF455006562A0 /* SmallTaskCardView.swift */; };
 		65B1A82B2C32677F008D0652 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1A82A2C32677F008D0652 /* SignInView.swift */; };
+		65B1A82E2C326856008D0652 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1A82D2C326856008D0652 /* SignInViewModel.swift */; };
 		65B1E6962C18705600DDC69C /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1E6952C18705600DDC69C /* DateUtils.swift */; };
 		65B1E6982C1874F700DDC69C /* SetTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1E6972C1874F700DDC69C /* SetTimeView.swift */; };
 		65B1E69C2C18BD0800DDC69C /* TodaysTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1E69B2C18BD0800DDC69C /* TodaysTasksView.swift */; };
+		65C62BA12C377F1A000F9EC5 /* PlatformSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C62BA02C377F1A000F9EC5 /* PlatformSignInView.swift */; };
 		65E109FA2C1AB5E000270B82 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E109F92C1AB5E000270B82 /* AccountView.swift */; };
 		65F1BF942C15FD1700A405EB /* TaskNestTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF932C15FD1700A405EB /* TaskNestTabView.swift */; };
 		65F1BF9A2C15FFDC00A405EB /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F1BF992C15FFDC00A405EB /* CalendarView.swift */; };
@@ -122,9 +124,11 @@
 		659C50D72C1BD1D0000B390A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		65A678B82C1AF455006562A0 /* SmallTaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTaskCardView.swift; sourceTree = "<group>"; };
 		65B1A82A2C32677F008D0652 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		65B1A82D2C326856008D0652 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		65B1E6952C18705600DDC69C /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		65B1E6972C1874F700DDC69C /* SetTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTimeView.swift; sourceTree = "<group>"; };
 		65B1E69B2C18BD0800DDC69C /* TodaysTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysTasksView.swift; sourceTree = "<group>"; };
+		65C62BA02C377F1A000F9EC5 /* PlatformSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformSignInView.swift; sourceTree = "<group>"; };
 		65E109F92C1AB5E000270B82 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		65F1BF932C15FD1700A405EB /* TaskNestTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskNestTabView.swift; sourceTree = "<group>"; };
 		65F1BF992C15FFDC00A405EB /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -325,6 +329,7 @@
 				65F1BF982C15FF4200A405EB /* CalendarViewModel */,
 				65F1BF952C15FE0400A405EB /* AccountViewModel */,
 				6591D9F42C1D4D3D007C098B /* SignUpViewModel */,
+				65B1A82C2C32683C008D0652 /* SignInViewModel */,
 				6510D6412C1AE4EE000D194D /* SmallTaskCardViewModel */,
 				6510D6422C1AE4FF000D194D /* LargeTaskCardViewModel */,
 				65B1E6992C1874FC00DDC69C /* SetTimeViewModel */,
@@ -397,8 +402,17 @@
 			isa = PBXGroup;
 			children = (
 				65B1A82A2C32677F008D0652 /* SignInView.swift */,
+				65C62BA02C377F1A000F9EC5 /* PlatformSignInView.swift */,
 			);
 			path = SignInView;
+			sourceTree = "<group>";
+		};
+		65B1A82C2C32683C008D0652 /* SignInViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				65B1A82D2C326856008D0652 /* SignInViewModel.swift */,
+			);
+			path = SignInViewModel;
 			sourceTree = "<group>";
 		};
 		65B1E6942C186FF400DDC69C /* Dates */ = {
@@ -635,6 +649,7 @@
 				65F1BF9A2C15FFDC00A405EB /* CalendarView.swift in Sources */,
 				65F727F62C202F9E00219B53 /* TasksView.swift in Sources */,
 				657C15352C15816900BA2A09 /* ContentView.swift in Sources */,
+				65B1A82E2C326856008D0652 /* SignInViewModel.swift in Sources */,
 				65161D842C1B14C0007D1DAB /* LargeTaskCardViewModel.swift in Sources */,
 				65FE10422C1DDE09006091F2 /* String+Ext.swift in Sources */,
 				659C50D82C1BD1D0000B390A /* Date+Ext.swift in Sources */,
@@ -643,6 +658,7 @@
 				6568F6D82C1BC69A00855A26 /* AccountViewModel.swift in Sources */,
 				65F6B7EF2C1D9C9A009A8CE0 /* Alert.swift in Sources */,
 				6510D63C2C1AD84A000D194D /* TasksViewModel.swift in Sources */,
+				65C62BA12C377F1A000F9EC5 /* PlatformSignInView.swift in Sources */,
 				657C15332C15816900BA2A09 /* TaskNest_Task_Manager_SwiftUIApp.swift in Sources */,
 				65B1E69C2C18BD0800DDC69C /* TodaysTasksView.swift in Sources */,
 				6591D9F62C1D4DA0007C098B /* SignUpView.swift in Sources */,

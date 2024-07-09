@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct GuestUser: Codable, Identifiable {
-    var id: String = ""
-    var firstName: String = ""
-    var lastName: String = ""
-    var imageUrl: String = ""
-    var createdAt: Date = .init()
-}
-
 struct User: Codable, Identifiable {
     var id: String = ""
     var name: String = ""
@@ -22,5 +14,16 @@ struct User: Codable, Identifiable {
     var email: String = ""
     var password: String = ""
     var imageUrl: String = ""
-    var createdAt: Date = .init()
+    var createdAt = Date()
+}
+
+enum MockUserData {
+    static let sampleUser = User(
+        id: "1",
+        name: "Barr",
+        username: "eka",
+        email: "hahahah@gmail.com",
+        password: "11223344",
+        imageUrl: "profPict"
+    )
 }

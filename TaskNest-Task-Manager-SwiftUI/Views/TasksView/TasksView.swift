@@ -31,7 +31,6 @@ struct TasksView: View {
             }
 
             .navigationBarTitle("Tasks", displayMode: .inline)
-            .navigationBarTitle("Home", displayMode: .inline)
             .navigationBarItems(
                 trailing:
                 Button(
